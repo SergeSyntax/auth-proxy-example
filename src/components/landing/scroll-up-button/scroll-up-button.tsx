@@ -1,6 +1,6 @@
 import React from 'react';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import { FabScrollUpButton } from './fab-scroll-up-button.style';
+import { FabScrollUpButton } from './fab.style';
 import { Zoom } from '@material-ui/core';
 import { IoIosArrowUp } from 'react-icons/io/';
 

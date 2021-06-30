@@ -1,6 +1,6 @@
-import { RubricItem } from './rubric-item';
+import { RubricItem } from '../rubric-item';
 import { RUBRIC_LIST } from './rubric-list.constant';
-import { WrapperRubricList } from './wrapper-rubric-list.style';
+import { WrapperRubricList } from './wrapper.style';
 
 export const RubricList: React.FC = () => (
   <WrapperRubricList>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { LogoIcon } from './icon-logo.style';
-import { LogoText } from './text-logo.style';
-import LogoWrapper from './wrapper-logo.style';
+import { LogoIcon } from './icon.style';
+import { LogoText } from './text.style';
+import LogoWrapper from './wrapper.style';
 
 interface Props {
   className?: string;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { VideoBackgroundFeatures } from './video-background-features.style';
-import { WrapperFeatures } from './wrapper-features.style';
-import { ListFeature } from './list-feature';
+import { VideoBackgroundFeatures } from './video-background.style';
+import { WrapperFeatures } from './wrapper.style';
+import { ListFeature } from './list';
 
 export const Features: React.FC = () => {
   return (

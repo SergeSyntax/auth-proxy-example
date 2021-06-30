@@ -1,6 +1,6 @@
 import React from 'react';
-import { IconSignature } from './icon-signature.style';
-import { TextSignature } from './text-signature.style';
+import { IconSignature } from './icon.style';
+import { TextSignature } from './text.style';
 
 export const Signature: React.FC = (props) => {
   return (

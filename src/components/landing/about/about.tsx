@@ -1,7 +1,7 @@
 import React from 'react';
-import ContainerAbout from './about-container.style';
-import { SectionAbout } from './section-about.style';
-import { ImageAbout } from './image-about.style';
+import ContainerAbout from './container.style';
+import { SectionAbout } from './section.style';
+import { ImageAbout } from './image.style';
 import { RubricList } from './rubric-list/rubric-list';
 
 export const About: React.FC = () => {

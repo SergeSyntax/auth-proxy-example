@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import React, { Fragment } from 'react';
 
 import { SEO } from '../components/common/seo';
-import { LandingHeader } from 'src/components/landing/header-landing';
+import { LandingHeader } from 'src/components/landing/header';
 import { About } from 'src/components/landing/about';
 import { Features } from 'src/components/landing/features';
 import { Footer } from 'src/components/landing/footer';

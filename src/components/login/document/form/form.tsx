@@ -6,7 +6,7 @@ import { LabeledTextField } from 'src/components/common/fields/text-labled';
 import { SubmitWideButton } from 'src/components/common/button/submit-wide-button';
 import { schemaLogin } from './schema';
 import { ValuesFormLogin } from './values.interface';
-import { initialValuesLogin } from './initial-values';
+import { initialValuesLogin } from './initial-values.constant';
 
 export const LoginDocumentForm: React.FC = () => {
   const onSubmit = (values: ValuesFormLogin): void => {};

@@ -37,7 +37,7 @@ export const FormDocumentRegistration: React.FC = () => {
               name="password"
               placeholder="i.e. example@!%$5475347"
             />
-            <SubmitWideButton inProgress={false} type="submit" text="Agree & Join" />
+            <SubmitWideButton inProgress={false} type="submit" text="Agree 	&amp; Join" />
           </Form>
         );
       }}

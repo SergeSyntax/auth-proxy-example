@@ -30,7 +30,7 @@ const FormPasswordRecovery: React.FC = () => {
             <ActionWrapperFormPasswordRecovery>
               <Link passHref href="/login">
                 <CancelButtonPasswordRecovery variant="outlined" color="primary">
-                  cancel
+                  back
                 </CancelButtonPasswordRecovery>
               </Link>
 

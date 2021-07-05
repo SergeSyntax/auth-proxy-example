@@ -3,16 +3,18 @@ import { Form, Formik } from 'formik';
 import { MdLockOutline, MdMailOutline, MdPersonOutline } from 'react-icons/md';
 import { validationSchemaRegistration } from './schema';
 import { initialValuesRegistration } from './initial-values.constant';
-import { LabeledTextField } from 'src/components/common/fields/text-labled';
+import { LabeledTextField } from 'src/components/common/fields/text-labeled';
 import PasswordField from 'src/components/common/fields/password';
 import { SubmitWideButton } from 'src/components/common/button/submit-wide-button';
-import { FormValuesRegistration } from './values.interface';
+import { RegistrationPayload } from 'src/hooks/auth/types/registration-payload.interface';
+import { useRegistration } from 'src/hooks/auth/useRegistration';
 
 export const FormDocumentRegistration: React.FC = () => {
-  const onSubmit = (values: FormValuesRegistration) => {};
+  const { mutate, isLoading } = useRegistration();
+  const onSubmit = (values: RegistrationPayload) => mutate(values);
 
   return (
-    <Formik<FormValuesRegistration>
+    <Formik<RegistrationPayload>
       validationSchema={validationSchemaRegistration}
       initialValues={initialValuesRegistration}
       onSubmit={onSubmit}
@@ -37,7 +39,7 @@ export const FormDocumentRegistration: React.FC = () => {
               name="password"
               placeholder="i.e. example@!%$5475347"
             />
-            <SubmitWideButton inProgress={false} type="submit" text="Agree 	&amp; Join" />
+            <SubmitWideButton inProgress={isLoading} type="submit" text="Agree 	&amp; Join" />
           </Form>
         );
       }}

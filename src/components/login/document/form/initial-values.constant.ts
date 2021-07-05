@@ -1,6 +1,6 @@
-import { ValuesFormLogin } from './values.interface';
+import { LoginCredentials } from 'src/hooks/auth/types/login-credentials.interface';
 
-export const initialValuesLogin: ValuesFormLogin = {
+export const initialValuesLogin: LoginCredentials = {
   email: '',
   password: '',
 };

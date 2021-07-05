@@ -9,7 +9,7 @@ export const TabDashboard = styled(TabMUI)`
     line-height: 1.5;
     padding-top: 1rem;
     opacity: 0.9;
-    &.MuiButtonBase-root > .MuiTab-wrapper > svg {
+    &.MuiButtonBase-root > svg {
       font-size: 2.5rem;
     }
   }

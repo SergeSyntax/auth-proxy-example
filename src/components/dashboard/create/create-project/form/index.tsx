@@ -3,7 +3,7 @@ import { Form, Formik } from 'formik';
 import { TiTag } from 'react-icons/ti';
 import { DialogActions } from '@material-ui/core';
 import { createProjectValidationSchema } from './schema';
-import { LabeledTextField } from 'src/components/common/fields/text-labled';
+import { LabeledTextField } from 'src/components/common/fields/text-labeled';
 import { LabeledSelectField } from 'src/components/common/fields/select-labled';
 import { TextButton } from 'src/components/common/button/text-button';
 import SubmitButton from 'src/components/common/button/submit/submit';

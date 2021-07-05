@@ -7,7 +7,7 @@ import { ValuesPasswordRecovery } from './values.interface';
 import { SchemaPasswordRecovery } from './schema';
 import { CancelButtonPasswordRecovery } from './cancel-button.style';
 import { ApproveButtonPasswordRecovery } from './approve-button.style';
-import { LabeledTextField } from 'src/components/common/fields/text-labled';
+import { LabeledTextField } from 'src/components/common/fields/text-labeled';
 
 const FormPasswordRecovery: React.FC = () => {
   return (

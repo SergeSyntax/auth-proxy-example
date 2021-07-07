@@ -2,7 +2,7 @@ import { MenuItem } from '@material-ui/core';
 import React, { Fragment } from 'react';
 import { AiOutlineUsergroupAdd } from 'react-icons/ai';
 import { RiMailSendLine } from 'react-icons/ri';
-import useDropdown from 'src/components/hooks/dropdown.hook';
+import useDropdown from 'src/hooks/common/dropdown.hook';
 import { CreateButton } from './button';
 import CreateProject from './create-project';
 import { CreateMenu } from './menu.style';

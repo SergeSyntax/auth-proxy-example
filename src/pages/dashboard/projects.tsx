@@ -1,11 +1,13 @@
 import React from 'react';
-import { useQuery } from 'react-query';
-import { getProjects } from 'src/api/project.api';
+
 import LayoutDashboard from 'src/components/dashboard/layout-dashboard';
+import { ListProject } from 'src/components/dashboard/projects/list/list';
 
 const Projects: React.FC = () => {
-  const projectsQuery = useQuery('projects', getProjects);
-
-  return <LayoutDashboard>Projects</LayoutDashboard>;
+  return (
+    <LayoutDashboard>
+      <ListProject />
+    </LayoutDashboard>
+  );
 };
 export default Projects;

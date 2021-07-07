@@ -2,7 +2,7 @@ import { DialogContent, MenuItem } from '@material-ui/core';
 
 import React, { Fragment } from 'react';
 import { BiLayerPlus } from 'react-icons/bi';
-import useDialog from 'src/components/hooks/dialog.hook';
+import useDialog from 'src/hooks/common/dialog.hook';
 
 import { Dialog } from './dialog,style';
 import DialogHeader from './dialog-header';

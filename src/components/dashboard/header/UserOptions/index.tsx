@@ -1,7 +1,7 @@
 import { ListItemIcon, Menu, MenuItem } from '@material-ui/core';
 import React, { Fragment, useState } from 'react';
 import { FiLogOut } from 'react-icons/fi';
-import useDropdown from 'src/components/hooks/dropdown.hook';
+import useDropdown from 'src/hooks/common/dropdown.hook';
 import { ButtonUserOptions } from './button';
 import { MenuUserOptions } from './menu.style';
 
@@ -26,7 +26,11 @@ export const UserOptions: React.FC = () => {
           horizontal: 'center',
         }}
       >
-        <MenuItem>
+        <MenuItem
+          onClick={(e) => {
+            location.replace('/api/logout');
+          }}
+        >
           <ListItemIcon>
             <FiLogOut />
           </ListItemIcon>

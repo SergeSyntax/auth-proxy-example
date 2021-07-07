@@ -1,10 +1,10 @@
 import { Container, styled } from '@material-ui/core';
 
-const ContainerHeaderDashboard = styled(Container)`
-  display: flex;
+export const ContainerHeaderDashboard = styled(Container)`
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row;
+  justify-items: center;
   align-items: center;
 `;
-
-ContainerHeaderDashboard.defaultProps = { maxWidth: 'lg' };
-
-export default ContainerHeaderDashboard;

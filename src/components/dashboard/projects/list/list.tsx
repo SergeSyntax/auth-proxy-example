@@ -65,7 +65,11 @@ const WrapperScrollProjectList = styled('div')`
 `;
 
 export const ListProject: React.FC<Props> = () => {
-  const { data, isLoading } = useProjects();
+  const { isLoading, isError, data, error } = useProjects();
+
+  if (isError) {
+    return <span>Error: {error?.message}</span>;
+  }
 
   return (
     <ContainerDashboard>

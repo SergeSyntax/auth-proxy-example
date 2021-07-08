@@ -1,14 +1,6 @@
 import { useQuery } from 'react-query';
 import { axios } from 'src/util/axios';
-
-export interface ProjectData {
-  id: string;
-  title: string;
-  accessibility: true;
-  createdAt: string;
-  updatedAt: string;
-  owner: string;
-}
+import { ProjectData } from './types';
 
 // const useQueryCommon = <T>(
 //   key: string,

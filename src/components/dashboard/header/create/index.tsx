@@ -4,7 +4,7 @@ import { AiOutlineUsergroupAdd } from 'react-icons/ai';
 import { RiMailSendLine } from 'react-icons/ri';
 import useDropdown from 'src/hooks/common/dropdown.hook';
 import { CreateButton } from './button';
-import CreateProject from './create-project';
+import CreateProject from '../../projects/create';
 import { CreateMenu } from './menu.style';
 
 export const Create: React.FC = () => {

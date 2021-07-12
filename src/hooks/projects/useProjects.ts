@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
 import { axios } from 'src/util/axios';
+import { NetError } from '../common/types/error.type';
 import { ProjectData } from './types';
 
 // const useQueryCommon = <T>(
@@ -23,6 +24,6 @@ import { ProjectData } from './types';
 //   });
 
 export const useProjects = () =>
-  useQuery<ProjectData[], Error>('projects', () =>
+  useQuery<ProjectData[], NetError>('projects', () =>
     axios.get<ProjectData[]>('/projects/?skip=0&take=20&orderBy[0][id]=asc').then((res) => res.data)
   );

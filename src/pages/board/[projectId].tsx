@@ -1,6 +1,5 @@
 import React from 'react';
 import { GetServerSideProps, NextPage } from 'next';
-import { useRouter } from 'next/router';
 import BoardWrapper from 'src/components/board/board-wrapper';
 import { useProject } from 'src/hooks/projects/useProject';
 

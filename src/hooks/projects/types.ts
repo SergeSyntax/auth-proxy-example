@@ -1,7 +1,12 @@
+export interface ProjectPayload {
+  title: string;
+  accessibility: boolean;
+}
+
 export interface ProjectData {
   id: string;
   title: string;
-  accessibility: true;
+  accessibility: boolean;
   createdAt: string;
   updatedAt: string;
   owner: string;

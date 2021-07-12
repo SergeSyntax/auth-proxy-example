@@ -8,6 +8,7 @@ import { LabeledSelectField } from 'src/components/common/fields/select-labled';
 import { TextButton } from 'src/components/common/button/text-button';
 import SubmitButton from 'src/components/common/button/submit/submit';
 import { SelectOptions } from 'src/components/common/fields/select';
+import { useCreateProject } from 'src/hooks/projects/useCreateProject';
 
 interface FormValues {
   title: string;
@@ -29,11 +30,15 @@ const values: SelectOptions[] = [
 ];
 
 const CreateProjectForm = ({ handleClose }: Props) => {
+  const { mutateAsync, isLoading } = useCreateProject();
   return (
     <Formik<FormValues>
       validationSchema={createProjectValidationSchema}
       initialValues={initialValues}
-      onSubmit={console.log}
+      onSubmit={async ({ title, accessibility }) => {
+        await mutateAsync({ title, accessibility: accessibility == 'private' });
+        handleClose();
+      }}
     >
       {() => {
         return (
@@ -47,7 +52,7 @@ const CreateProjectForm = ({ handleClose }: Props) => {
             <LabeledSelectField icon={TiTag} name="accessibility" values={values} />
             <DialogActions>
               <TextButton onClick={handleClose}>cancel</TextButton>
-              <SubmitButton inProgress={false} text="create" />
+              <SubmitButton inProgress={isLoading} text="create" />
             </DialogActions>
           </Form>
         );

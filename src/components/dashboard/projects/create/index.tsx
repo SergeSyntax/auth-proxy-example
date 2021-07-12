@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import { BiLayerPlus } from 'react-icons/bi';
 import useDialog from 'src/hooks/common/dialog.hook';
 
-import { Dialog } from './dialog,style';
+import { Dialog } from './dialog.style';
 import DialogHeader from './dialog-header';
 import CreateProjectForm from './form';
 

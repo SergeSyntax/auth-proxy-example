@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Cookies from 'cookies';
-
-const COOKIE_AUTH_KEY = 'auth-token';
+import { COOKIE_AUTH_KEY } from 'src/config/const';
 
 /**
  * handle the api call
@@ -11,7 +10,7 @@ const COOKIE_AUTH_KEY = 'auth-token';
  */
 const proxyHandler = (req: NextApiRequest, res: NextApiResponse): void => {
   const cookies = new Cookies(req, res);
-  cookies.set('auth-token', null);
+  cookies.set(COOKIE_AUTH_KEY, null);
   res.redirect('/');
 };
 

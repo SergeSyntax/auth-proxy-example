@@ -1,12 +1,13 @@
 import httpProxy, { ProxyReqCallback, ProxyResCallback, ServerOptions } from 'http-proxy';
 import { NextApiRequest, NextApiResponse } from 'next';
 import Cookies from 'cookies';
+import { COOKIE_AUTH_KEY } from 'src/config/const';
 
 /**
  * extract the target api route from the env variables or use the default
  */
 const TARGET_URL = process.env.API_URL || 'http://localhost:5000/api';
-const COOKIE_AUTH_KEY = 'auth-token';
+
 const AUTHORIZATION_KEY = 'Authorization';
 
 /**

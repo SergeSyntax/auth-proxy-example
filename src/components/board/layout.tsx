@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Background from './background';
 
-const BoardWrapper: React.FC = props => {
+export const LayoutBoard: React.FC = (props) => {
   return (
     <Fragment>
       <Background />
@@ -9,5 +9,3 @@ const BoardWrapper: React.FC = props => {
     </Fragment>
   );
 };
-
-export default BoardWrapper;

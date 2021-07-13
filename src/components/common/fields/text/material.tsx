@@ -9,14 +9,14 @@ export const TextField: React.FC<FieldProps<string>> = (props) => {
 
   return (
     <TextFieldMaterial
-      {...field}
-      {...rest}
       variant="outlined"
       helperText={isError ? getErrorMessage : ' '}
       error={isError}
       id={name}
       size="medium"
       fullWidth
+      {...field}
+      {...rest}
     />
   );
 };

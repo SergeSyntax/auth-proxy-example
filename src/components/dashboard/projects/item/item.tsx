@@ -1,7 +1,7 @@
 import { Card, CardActionArea, CardHeader } from '@material-ui/core';
 import Link from 'next/link';
 import React from 'react';
-import { MenuItemProject } from './menu';
+import { MenuItemProject } from '../menu';
 
 interface Props {
   project: any;

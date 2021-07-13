@@ -1,7 +1,9 @@
 import React from 'react';
 import { GetServerSideProps, NextPage } from 'next';
-import BoardWrapper from 'src/components/board/board-wrapper';
+import { LayoutBoard } from 'src/components/board/layout';
 import { useProject } from 'src/hooks/projects/useProject';
+import { WrapperBoard } from 'src/components/board/wrapper';
+import { HeaderBoard } from 'src/components/board/header/header';
 
 interface Props {
   projectId: string;
@@ -10,7 +12,15 @@ interface Props {
 const Board: NextPage<Props> = ({ projectId }) => {
   const { data } = useProject(projectId);
 
-  return <BoardWrapper>{data?.title}</BoardWrapper>;
+  return (
+    <LayoutBoard>
+      <WrapperBoard>
+        <HeaderBoard />
+
+        {data?.title}
+      </WrapperBoard>
+    </LayoutBoard>
+  );
 };
 
 // This gets called on every request

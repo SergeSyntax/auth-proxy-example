@@ -1,7 +1,7 @@
 import { AppBar, Grid, styled, Toolbar } from '@material-ui/core';
 import React from 'react';
 import { Logo } from 'src/components/common/logo';
-import { UserOptions } from 'src/components/dashboard/header/UserOptions';
+import { UserOptions } from 'src/components/dashboard/header/user-options';
 import { LocationBoard } from '../location';
 
 interface Props {}
@@ -17,10 +17,11 @@ const RowAppBarBoard = styled(Grid)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin: 0.6rem 0;
 `;
 
 const LogoBoard = styled(Logo)`
-  font-size: 2.9rem;
+  font-size: 3.5rem;
 `;
 
 export const HeaderBoard: React.FC<Props> = (props) => {

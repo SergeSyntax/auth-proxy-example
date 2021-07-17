@@ -20,7 +20,6 @@ $xl: 1920; */
 
   html {
     font-size: 62.5%;
-    overflow: hidden;
 
     // /* Medium Devices, Desktops */
     // @media only screen and (min-width: $lg) {

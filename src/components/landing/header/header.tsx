@@ -6,7 +6,7 @@ import { LogoHeaderLanding } from './logo.style';
 import { ButtonsHeaderLanding } from './buttons';
 // import { LandingHeaderLogo } from './landing-header-logo';
 
-export const LandingHeader: React.FC = () => {
+export const HeaderLanding: React.FC = () => {
   return (
     <WrapperHeaderLanding>
       <LogoHeaderLanding />

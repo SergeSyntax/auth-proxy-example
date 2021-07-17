@@ -2,11 +2,11 @@ import { DialogContent, MenuItem } from '@material-ui/core';
 
 import React, { Fragment } from 'react';
 import { BiLayerPlus } from 'react-icons/bi';
-import useDialog from 'src/hooks/common/dialog.hook';
 
 import { Dialog } from './dialog.style';
 import DialogHeader from './header';
 import CreateProjectForm from './form';
+import { useDialog } from 'src/components/common/dialog.hook';
 
 interface Props {
   onClick: () => void;

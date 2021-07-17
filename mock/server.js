@@ -28,19 +28,7 @@ app.use((req, res, next) => {
   switch (req.method) {
     case 'POST':
       req.body.id = uuidv4();
-      if (/^(\/projects\/?)$/.test(req.url)) {
-        req.body.owner = req.user.id;
-      }
-      if (/^\/projects\/.+\/sections\/?$/.test(req.url)) {
-        console.log(req.url.split('/'));
-        // const user = router.db.read().get('sections').find({ id:  }).value();
 
-        // .sort((a, b) => a.order - b.order);
-      }
-      if (req.url === '/projects' || req.url === '/projects/') {
-        // req.body.owner = req.user.id;
-        // req.body.sections = [];
-      }
       req.body.createdAt = new Date(Date.now()).toISOString();
       req.body.updateAt = new Date(Date.now()).toISOString();
       break;
@@ -53,22 +41,13 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/projects', (req, res, next) => {
+  req.body.owner = req.user.id;
+  next();
+});
+
 // You must apply the auth middleware before the router
 app.use(router);
 app.listen(5000, () => {
   console.log('JSON Server is running');
 });
-
-// // server.use(
-// //   '/api',
-// //   (req, res, next) => {
-// //     if (req.method === 'POST' && req.url.includes('registration')) {
-// //       return next();
-// //     }
-// //     // Continue to JSON Server router
-// //   },
-// //   router
-// // );
-
-// // Use default router
-// server.use(router);

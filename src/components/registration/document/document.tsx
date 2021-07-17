@@ -4,7 +4,7 @@ import { WrapperDocumentRegistration } from './wrapper.style';
 import { ConditionDocumentRegistration } from './condition.style';
 import { LoginOfferDocumentRegistration } from './login-offer';
 import { RouteLink } from 'src/components/common/route-link';
-import { FormDocumentRegistration } from './form/form';
+import { FormDocumentRegistration } from '../form/form';
 
 export const DocumentRegistration: React.FC = () => {
   return (

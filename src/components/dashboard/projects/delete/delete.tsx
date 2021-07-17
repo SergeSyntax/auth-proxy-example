@@ -1,7 +1,7 @@
 import { Dialog, ListItemIcon, MenuItem } from '@material-ui/core';
 import React, { Fragment } from 'react';
 import { GoX } from 'react-icons/go';
-import useDialog from 'src/hooks/common/dialog.hook';
+import { useDialog } from 'src/components/common/dialog.hook';
 import { ContentDeleteProject } from './content';
 import { FormDeleteProject } from './form';
 import { HeaderDeleteProject } from './header';

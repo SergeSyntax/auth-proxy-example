@@ -1,7 +1,7 @@
 import { IconButton, ListItemIcon, Menu, MenuItem } from '@material-ui/core';
 import React, { Fragment } from 'react';
 import { GoKebabVertical, GoPencil, GoX } from 'react-icons/go';
-import useDropdown from 'src/hooks/common/dropdown.hook';
+import { useDropdown } from 'src/components/common/dropdown.hook';
 import { DeleteProject } from '../delete/delete';
 
 interface Props {}

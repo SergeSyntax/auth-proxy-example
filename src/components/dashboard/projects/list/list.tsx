@@ -1,8 +1,8 @@
 import { List, ListItemButton, ListItemIcon, ListItemText, styled } from '@material-ui/core';
 import React, { Fragment } from 'react';
 import { FiFolder, FiArchive, FiStar, FiPackage } from 'react-icons/fi';
-import { useProjects } from 'src/hooks/projects/useProjects';
 import { ItemProject } from '../item';
+import { useProjects } from '../useProjects';
 
 interface Props {}
 
@@ -14,11 +14,11 @@ const ContainerDashboard = styled('div')`
   justify-items: center;
   /* "button count status"; */
   flex: 1;
+  margin: 4rem 0rem;
 `;
 
 const WrapperFilterMenuDashboard = styled(List)`
   max-width: 25rem;
-  margin-top: 5rem;
   margin-right: 3rem;
   max-height: 29rem;
   border-radius: 4rem;
@@ -42,7 +42,6 @@ const WrapperScrollProjectList = styled('div')`
   position: absolute;
   inset: 0;
   overflow-y: auto;
-  margin-top: 5rem;
   padding-right: 2rem;
   padding-left: 2rem;
   scrollbar-width: 8px;

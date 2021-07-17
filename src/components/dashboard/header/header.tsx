@@ -6,7 +6,7 @@ import { LogoDashboard } from './logo.style';
 import SearchDashboard from './search/search';
 import { NavDashboard } from './nav/nav';
 import { Create } from './create';
-import { UserOptions } from './UserOptions';
+import { UserOptions } from './user-options';
 
 const HeaderDashboard: React.FC = () => {
   return (

@@ -79,7 +79,7 @@ const handleAuth = (app, router) => {
   app.post('/login', requireAuthBody, (req, res) => {
     // User has already had their email and password auth
     // We just need to give them a token
-    res.set('Authorization', generateAuthToken(req.user));
+    res.setHeader('Authorization', generateAuthToken(req.user));
     res.send(clearUserSensitiveData(req.user));
   });
 
@@ -98,7 +98,7 @@ const handleAuth = (app, router) => {
     user = { ...req.body, id: uuidv4(), password: await hashPassword(password) };
     await usersLowDB.push(user).write();
 
-    res.set('Authorization', generateAuthToken(user));
+    res.setHeader('Authorization', generateAuthToken(user));
     res.send(user);
   });
 };

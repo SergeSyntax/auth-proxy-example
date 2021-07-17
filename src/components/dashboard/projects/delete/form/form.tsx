@@ -50,8 +50,6 @@ const FieldFormDeleteProject = styled(TextField)`
 `;
 
 export const FormDeleteProject: React.FC<Props> = ({ projectId, projectTitle }) => {
-  console.log(projectId, projectTitle);
-
   return (
     <Formik<FormValues> onSubmit={console.log} initialValues={{ title: '' }}>
       {({ values }) => {

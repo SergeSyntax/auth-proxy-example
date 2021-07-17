@@ -1,16 +1,16 @@
 import React from 'react';
-import ContainerAbout from './container.style';
-import { SectionAbout } from './section.style';
+import { ContainerAbout } from './container.style';
+import { WrapperAbout } from './wrapper.style';
 import { ImageAbout } from './image.style';
-import { RubricList } from './rubric-list/rubric-list';
+import { Rubrics } from './rubrics';
 
 export const About: React.FC = () => {
   return (
-    <SectionAbout draggable={false}>
+    <WrapperAbout draggable={false}>
       <ContainerAbout>
         <ImageAbout alt="about-paragraph" src="/img/about-image.svg" />
-        <RubricList />
+        <Rubrics />
       </ContainerAbout>
-    </SectionAbout>
+    </WrapperAbout>
   );
 };

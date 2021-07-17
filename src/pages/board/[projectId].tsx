@@ -4,6 +4,7 @@ import { LayoutBoard } from 'src/components/board/layout';
 import { useProject } from 'src/hooks/projects/useProject';
 import { WrapperBoard } from 'src/components/board/wrapper';
 import { HeaderBoard } from 'src/components/board/header/header';
+import { SectionsBoard } from 'src/components/board/sections';
 
 interface Props {
   projectId: string;
@@ -16,8 +17,7 @@ const Board: NextPage<Props> = ({ projectId }) => {
     <LayoutBoard>
       <WrapperBoard>
         <HeaderBoard />
-
-        {data?.title}
+        <SectionsBoard />
       </WrapperBoard>
     </LayoutBoard>
   );

@@ -6,12 +6,14 @@ const { promisify } = require('util');
 const crypto = require('crypto');
 const _ = require('lodash');
 const { hashPassword } = require('./auth');
+const { green, cyan } = require('chalk');
+require('dotenv').config();
 
 const NUM_OF_USERS = 1;
-const NUM_OF_PROJECTS_PER_USER = 1;
-const NUM_OF_SECTIONS_PER_PROJECT = 1;
-const NUM_OF_TASKS_PER_SECTION = 1;
-const NUM_OF_COMMENTS_PER_TASK = 1;
+const NUM_OF_PROJECTS_PER_USER = 2;
+const NUM_OF_SECTIONS_PER_PROJECT = 6;
+const NUM_OF_TASKS_PER_SECTION = 6;
+const NUM_OF_COMMENTS_PER_TASK = 3;
 
 // change from callback function to promise based
 const writeFile = promisify(fs.writeFile);
@@ -28,7 +30,7 @@ const generateFile = async (obj) => {
     await writeFile(DB_PATH, JSON.stringify(obj, null, 2), {
       encoding: 'utf-8',
     });
-    console.log(`created db.json`);
+    console.log(green('db.json created.'));
   } catch (error) {}
 };
 
@@ -73,12 +75,18 @@ const generateProject = ({ id: owner }) => ({
 });
 
 const generateUser = async () => {
-  const password = faker.internet.password();
+  const password = process.env.MOCK_PASSWORD || faker.internet.password();
   const hashedPassword = await hashPassword(password);
   const name = faker.internet.userName();
+  const email = process.env.MOCK_EMAIL || faker.internet.email(name);
+
+  console.log('user generated:');
+  console.log('email:', cyan(email.toLowerCase()));
+  console.log('password', cyan(password));
+
   return {
     id: faker.datatype.uuid(),
-    email: faker.internet.email(name),
+    email,
     password: hashedPassword,
     name,
     role: _.sample(['user', 'guide', 'lead-guide', 'admin']),

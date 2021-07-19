@@ -2,11 +2,12 @@ import { List, ListItemButton, ListItemIcon, ListItemText, styled } from '@mater
 import React, { Fragment } from 'react';
 import { FiFolder, FiArchive, FiStar, FiPackage } from 'react-icons/fi';
 import { ItemProject } from '../item';
+import { SkeletonProject } from '../skeleton';
 import { useProjects } from '../useProjects';
 
 interface Props {}
 
-const ContainerDashboard = styled('div')`
+const ContainerListProject = styled('div')`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -17,7 +18,7 @@ const ContainerDashboard = styled('div')`
   margin: 4rem 0rem;
 `;
 
-const WrapperFilterMenuDashboard = styled(List)`
+const WrapperFilterProject = styled(List)`
   max-width: 25rem;
   margin-right: 3rem;
   max-height: 29rem;
@@ -71,8 +72,8 @@ export const ListProject: React.FC<Props> = () => {
   }
 
   return (
-    <ContainerDashboard>
-      <WrapperFilterMenuDashboard>
+    <ContainerListProject>
+      <WrapperFilterProject>
         <ListItemButton>
           <ListItemIcon>
             <FiFolder />
@@ -97,21 +98,21 @@ export const ListProject: React.FC<Props> = () => {
           </ListItemIcon>
           <ListItemText primary="Archive" />
         </ListItemButton>
-      </WrapperFilterMenuDashboard>
+      </WrapperFilterProject>
       <ContainerScrollProjectList>
         <WrapperScrollProjectList>
           {isLoading ? (
-            '<ProjectSkeleton />'
+            <SkeletonProject />
           ) : (
             <Fragment>
-              {data?.map((project) => (
+              {data?.map(project => (
                 <ItemProject key={project.id} project={project} />
               ))}
             </Fragment>
           )}
         </WrapperScrollProjectList>
       </ContainerScrollProjectList>
-    </ContainerDashboard>
+    </ContainerListProject>
   );
   // if (isLoading) return <div>loading</div>;
   // return <div>{data?.data?.map((item) => item.title)}</div>;

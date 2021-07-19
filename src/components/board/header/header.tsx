@@ -24,7 +24,7 @@ const LogoBoard = styled(Logo)`
   font-size: 3.5rem;
 `;
 
-export const HeaderBoard: React.FC<Props> = (props) => {
+export const HeaderBoard: React.FC<Props> = props => {
   return (
     <AppBarBoard position="static">
       <Grid component={Toolbar} container direction="column">

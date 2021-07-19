@@ -8,7 +8,7 @@ import { LabeledSelectField } from 'src/components/common/fields/select-labled';
 import { TextButton } from 'src/components/common/button/text-button';
 import SubmitButton from 'src/components/common/button/submit/submit';
 import { SelectOptions } from 'src/components/common/fields/select';
-import { useCreateProject } from 'src/hooks/projects/useCreateProject';
+import { useCreateProject } from './useCreateProject';
 
 interface FormValues {
   title: string;
@@ -21,12 +21,12 @@ interface Props {
 
 const initialValues: FormValues = {
   title: '',
-  accessibility: 'public',
+  accessibility: 'public'
 };
 
 const values: SelectOptions[] = [
   { key: 'private', value: 'private' },
-  { key: 'public', value: 'public' },
+  { key: 'public', value: 'public' }
 ];
 
 const CreateProjectForm = ({ handleClose }: Props) => {

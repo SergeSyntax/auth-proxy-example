@@ -1,10 +1,11 @@
 import React from 'react';
 import { GetServerSideProps, NextPage } from 'next';
 import { LayoutBoard } from 'src/components/board/layout';
-import { useProject } from 'src/hooks/projects/useProject';
 import { WrapperBoard } from 'src/components/board/wrapper';
 import { HeaderBoard } from 'src/components/board/header/header';
 import { SectionsBoard } from 'src/components/board/sections';
+import { useProject } from 'src/components/projects/useProject';
+import { ContentBoard } from 'src/components/board/content.style';
 
 interface Props {
   projectId: string;
@@ -17,7 +18,9 @@ const Board: NextPage<Props> = ({ projectId }) => {
     <LayoutBoard>
       <WrapperBoard>
         <HeaderBoard />
-        <SectionsBoard />
+        <ContentBoard>
+          <SectionsBoard projectId={projectId} />
+        </ContentBoard>
       </WrapperBoard>
     </LayoutBoard>
   );

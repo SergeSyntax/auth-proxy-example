@@ -12,5 +12,5 @@ export const navTabs: NavTabAttributes[] = [
   { href: '/dashboard', label: 'Home', icon: MdHome },
   { href: '/dashboard/projects', label: 'Projects', icon: MdLayers },
   { href: '/dashboard/teams', label: 'Teams', icon: MdPeople },
-  { href: '/dashboard/members', label: 'Members', icon: AiFillMessage },
+  { href: '/dashboard/members', label: 'Members', icon: AiFillMessage }
 ];

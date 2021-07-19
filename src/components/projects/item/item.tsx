@@ -1,15 +1,17 @@
-import { Card, CardActionArea, CardHeader } from '@material-ui/core';
+import { CardActionArea, CardHeader } from '@material-ui/core';
 import Link from 'next/link';
 import React from 'react';
+import { ProjectRes } from 'src/components/common/@types/project-res.interface';
 import { MenuItemProject } from '../menu';
+import { WrapperItemProject } from './wrapper';
 
 interface Props {
-  project: any;
+  project: ProjectRes;
 }
 
 export const ItemProject: React.FC<Props> = ({ project }) => {
   return (
-    <Card style={{ display: 'flex', marginBottom: '3rem' }}>
+    <WrapperItemProject>
       <Link passHref href={`/board/${project.id}`}>
         <CardActionArea>
           <CardHeader
@@ -20,6 +22,6 @@ export const ItemProject: React.FC<Props> = ({ project }) => {
       </Link>
 
       <MenuItemProject />
-    </Card>
+    </WrapperItemProject>
   );
 };

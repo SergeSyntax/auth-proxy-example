@@ -14,7 +14,7 @@ const FormPasswordRecovery: React.FC = () => {
     <Formik<ValuesPasswordRecovery>
       validationSchema={SchemaPasswordRecovery}
       initialValues={{ email: '' }}
-      onSubmit={(values) => {
+      onSubmit={values => {
         console.log(values);
       }}
     >

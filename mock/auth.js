@@ -13,14 +13,14 @@ const APP_SECRET_KEY = 'secret';
 /** Asynchronously compares the given data against the given hash. */
 const comparePassword = promisify(bcrypt.compare);
 /** Asynchronously generates a hash for the given password. */
-const hashPassword = async (password) => bcrypt.hash(password, await bcrypt.genSalt(10));
+const hashPassword = async password => bcrypt.hash(password, await bcrypt.genSalt(10));
 /** sign the given payload into a JSON Web Token */
-const generateAuthToken = (user) => {
+const generateAuthToken = user => {
   return jwt.sign(
     {
       sub: user.id,
       aud: user.role,
-      iat: Date.now(),
+      iat: Date.now()
     },
     APP_SECRET_KEY,
     { expiresIn: '20d' }
@@ -32,14 +32,14 @@ const requireAuthHeader = passport.authenticate('jwt', { session: false });
 /** authenticate using a username and password */
 const requireAuthBody = passport.authenticate('local', { session: false });
 
-const clearUserSensitiveData = (user) => _.pick(user, ['id', 'name', 'email']);
+const clearUserSensitiveData = user => _.pick(user, ['id', 'name', 'email']);
 
 const handleAuth = (app, router) => {
   passport.use(
     new JwtStrategy(
       {
         jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-        secretOrKey: APP_SECRET_KEY,
+        secretOrKey: APP_SECRET_KEY
       },
       (payload, done) => {
         // See if the user ID in the payload exists in our database
@@ -107,5 +107,5 @@ module.exports = {
   hashPassword,
   requireAuthHeader,
   requireAuthBody,
-  handleAuth,
+  handleAuth
 };

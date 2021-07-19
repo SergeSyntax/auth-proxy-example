@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import { ProjectRes } from 'src/components/common/@types/project-res.interface';
 import { axios } from 'src/util/axios';
-import { ErrorRes } from '../../common/@types/error-res.interface';
+import { ErrorRes } from '../common/@types/error-res.interface';
 
 // const useQueryCommon = <T>(
 //   key: string,
@@ -25,5 +25,5 @@ import { ErrorRes } from '../../common/@types/error-res.interface';
 
 export const useProjects = () =>
   useQuery<ProjectRes[], ErrorRes>('projects', () =>
-    axios.get<ProjectRes[]>('/projects/?skip=0&take=20&orderBy[0][id]=asc').then((res) => res.data)
+    axios.get<ProjectRes[]>('/projects/?skip=0&take=20&orderBy[0][id]=asc').then(res => res.data)
   );

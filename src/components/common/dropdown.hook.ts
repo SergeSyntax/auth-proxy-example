@@ -9,7 +9,7 @@ interface UseDropdown {
 export const useDropdown = (initialState: Element | null): UseDropdown => {
   const [dropdown, setAnchorElement] = useState<Element | null>(initialState);
 
-  const openDropdown: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+  const openDropdown: React.MouseEventHandler<HTMLButtonElement> = event => {
     setAnchorElement(event.currentTarget);
   };
 

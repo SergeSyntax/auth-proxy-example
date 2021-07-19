@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Background from './background';
 
-export const LayoutBoard: React.FC = (props) => {
+export const LayoutBoard: React.FC = props => {
   return (
     <Fragment>
       <Background />

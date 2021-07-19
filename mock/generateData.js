@@ -22,13 +22,13 @@ const removeFile = promisify(rimraf);
 // File PAth
 const DB_PATH = path.join(__dirname, 'db.json');
 
-const generateFile = async (obj) => {
+const generateFile = async obj => {
   try {
     // remove the file if exists
     if (fs.existsSync(DB_PATH)) await removeFile(DB_PATH);
     // create the file with the mock data
     await writeFile(DB_PATH, JSON.stringify(obj, null, 2), {
-      encoding: 'utf-8',
+      encoding: 'utf-8'
     });
     console.log(green('db.json created.'));
   } catch (error) {}
@@ -42,7 +42,7 @@ const generateComment = (taskId, authorId) => ({
   taskId,
   authorId,
   createdAt: faker.datatype.datetime().toISOString(),
-  updatedAt: faker.datatype.datetime().toISOString(),
+  updatedAt: faker.datatype.datetime().toISOString()
 });
 
 const generateTask = (sectionId, orderIndex) => ({
@@ -53,7 +53,7 @@ const generateTask = (sectionId, orderIndex) => ({
   description: null,
   sectionId,
   createdAt: faker.datatype.datetime().toISOString(),
-  updatedAt: faker.datatype.datetime().toISOString(),
+  updatedAt: faker.datatype.datetime().toISOString()
 });
 
 const generateSection = (projectId, orderIndex) => ({
@@ -62,7 +62,7 @@ const generateSection = (projectId, orderIndex) => ({
   order: orderIndex,
   projectId,
   createdAt: faker.datatype.datetime().toISOString(),
-  updatedAt: faker.datatype.datetime().toISOString(),
+  updatedAt: faker.datatype.datetime().toISOString()
 });
 
 const generateProject = ({ id: owner }) => ({
@@ -71,18 +71,20 @@ const generateProject = ({ id: owner }) => ({
   accessibility: _.sample([true, false]),
   owner,
   createdAt: faker.datatype.datetime().toISOString(),
-  updatedAt: faker.datatype.datetime().toISOString(),
+  updatedAt: faker.datatype.datetime().toISOString()
 });
 
 const generateUser = async () => {
   const password = process.env.MOCK_PASSWORD || faker.internet.password();
   const hashedPassword = await hashPassword(password);
   const name = faker.internet.userName();
-  const email = process.env.MOCK_EMAIL || faker.internet.email(name);
+  const email = process.env.MOCK_EMAIL || faker.internet.email(name).toLowerCase().trim();
 
-  console.log('user generated:');
-  console.log('email:', cyan(email.toLowerCase()));
-  console.log('password', cyan(password));
+  setTimeout(function () {
+    console.log('user generated:');
+    console.log('email:', cyan(email.toLowerCase()));
+    console.log('password', cyan(password));
+  }, 3000);
 
   return {
     id: faker.datatype.uuid(),
@@ -91,8 +93,7 @@ const generateUser = async () => {
     name,
     role: _.sample(['user', 'guide', 'lead-guide', 'admin']),
     resetToken: crypto.createHash('sha256').digest('hex'),
-    resetTokenExpires: faker.date.past().toISOString(),
-    db_comment: password,
+    resetTokenExpires: faker.date.past().toISOString()
   };
 };
 
@@ -102,42 +103,42 @@ const generateDataProcess = async (
     projects: [],
     sections: [],
     tasks: [],
-    comments: [],
+    comments: []
   }
 ) => {
   const insertUsers = () => Promise.all(generateArray(NUM_OF_USERS).map(generateUser));
 
-  const insertProjectsForUser = (user) => {
+  const insertProjectsForUser = user => {
     database.projects = [
       ...database.projects,
-      ...generateArray(NUM_OF_PROJECTS_PER_USER).map(() => generateProject(user)),
+      ...generateArray(NUM_OF_PROJECTS_PER_USER).map(() => generateProject(user))
     ];
   };
 
-  const insertSectionsForProject = (project) => {
+  const insertSectionsForProject = project => {
     database.sections = [
       ...database.sections,
       ...generateArray(NUM_OF_SECTIONS_PER_PROJECT).map((_value, index) =>
         generateSection(project.id, index)
-      ),
+      )
     ];
   };
 
-  const insertTasksForSection = (section) => {
+  const insertTasksForSection = section => {
     database.tasks = [
       ...database.tasks,
       ...generateArray(NUM_OF_TASKS_PER_SECTION).map((_value, index) =>
         generateTask(section.id, index)
-      ),
+      )
     ];
   };
 
-  const insertCommentsIntoTask = (task) => {
+  const insertCommentsIntoTask = task => {
     database.comments = [
       ...database.comments,
       ...generateArray(NUM_OF_COMMENTS_PER_TASK).map(() =>
         generateComment(task.id, _.sample(database.users).id)
-      ),
+      )
     ];
   };
 

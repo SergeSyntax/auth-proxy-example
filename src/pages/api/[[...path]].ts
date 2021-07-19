@@ -1,7 +1,7 @@
 import httpProxy, { ProxyReqCallback, ProxyResCallback, ServerOptions } from 'http-proxy';
 import { NextApiRequest, NextApiResponse } from 'next';
 import Cookies from 'cookies';
-import { COOKIE_AUTH_KEY } from 'src/config/const';
+import { COOKIE_AUTH_KEY } from 'config/const';
 
 /**
  * extract the target api route from the env variables or use the default
@@ -23,8 +23,8 @@ const proxy = httpProxy.createProxyServer();
  */
 export const config = {
   api: {
-    bodyParser: false,
-  },
+    bodyParser: false
+  }
 };
 
 const proxyServerOptions: ServerOptions = { target: TARGET_URL, autoRewrite: false };

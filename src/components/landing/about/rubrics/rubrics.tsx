@@ -4,7 +4,7 @@ import { WrapperRubrics } from './wrapper.style';
 
 export const Rubrics: React.FC = () => (
   <WrapperRubrics>
-    {RUBRICS.map((rubric) => (
+    {RUBRICS.map(rubric => (
       <RubricItem key={rubric.title} {...rubric} />
     ))}
   </WrapperRubrics>

@@ -19,7 +19,7 @@ export const PasswordLabel: React.FC<Props> = ({
   children,
   icon,
   isHidden,
-  setIsHidden,
+  setIsHidden
 }) => {
   return (
     <PasswordLabelWrapper htmlFor={htmlFor}>

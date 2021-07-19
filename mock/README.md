@@ -531,7 +531,7 @@ To modify responses, overwrite `router.render` method:
 // In this example, returned resources will be wrapped in a body property
 router.render = (req, res) => {
   res.jsonp({
-    body: res.locals.data,
+    body: res.locals.data
   });
 };
 ```
@@ -542,7 +542,7 @@ You can set your own status code for the response:
 // In this example we simulate a server side error response
 router.render = (req, res) => {
   res.status(500).jsonp({
-    error: 'error message here',
+    error: 'error message here'
   });
 };
 ```
@@ -556,7 +556,7 @@ To add rewrite rules, use `jsonServer.rewriter()`:
 server.use(
   jsonServer.rewriter({
     '/api/*': '/$1',
-    '/blog/:resource/:id/show': '/:resource/:id',
+    '/blog/:resource/:id/show': '/:resource/:id'
   })
 );
 ```

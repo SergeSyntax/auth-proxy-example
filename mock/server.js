@@ -15,7 +15,7 @@ app.use(
     '/api/*': '/$1',
     '/auth/registration': '/register',
     '/auth/login': '/login',
-    '/auth/profile': '/profile',
+    '/auth/profile': '/profile'
   })
 );
 // Add custom routes before JSON Server router

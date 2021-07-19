@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Cookies from 'cookies';
-import { COOKIE_AUTH_KEY } from 'src/config/const';
+import { COOKIE_AUTH_KEY } from 'config/const';
 
 /**
  * handle the api call

@@ -15,6 +15,7 @@ import { global } from '../styles/global';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'src/components/common/react-query-devtools';
+import { AlertContextProvider } from 'src/components/alert/provider';
 
 const cache = createCache({ key: 'css' });
 cache.compat = true;
@@ -33,7 +34,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Global styles={global} />
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
-          <Component {...pageProps} />
+          <AlertContextProvider>
+            <Component {...pageProps} />
+          </AlertContextProvider>
           <ReactQueryDevtools />
         </ThemeProvider>
       </CacheProvider>
@@ -43,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object.isRequired,
+  pageProps: PropTypes.object.isRequired
 };
 
 export default MyApp;

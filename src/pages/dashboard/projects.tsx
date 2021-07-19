@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LayoutDashboard from 'src/components/dashboard/layout-dashboard';
-import { ListProject } from 'src/components/dashboard/projects/list/list';
+import { ListProject } from 'src/components/projects/list/list';
 
 const Projects: React.FC = () => {
   return (

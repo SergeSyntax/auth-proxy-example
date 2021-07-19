@@ -23,7 +23,7 @@ export const MenuItemProject: React.FC<Props> = () => {
         onClose={closeDropdown}
         transformOrigin={{
           vertical: 'bottom',
-          horizontal: 'center',
+          horizontal: 'center'
         }}
       >
         <MenuItem>

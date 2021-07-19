@@ -7,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-export const Logo: React.FC<Props> = (props) => {
+export const Logo: React.FC<Props> = props => {
   return (
     <LogoWrapper {...props}>
       <LogoIcon />

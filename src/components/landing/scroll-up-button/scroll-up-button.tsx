@@ -12,7 +12,7 @@ export const ScrollUpButton: React.FC = () => {
     trigger = useScrollTrigger({
       target: window ? window : undefined,
       disableHysteresis: true,
-      threshold: window.innerHeight * 0.5,
+      threshold: window.innerHeight * 0.5
     });
 
   return (

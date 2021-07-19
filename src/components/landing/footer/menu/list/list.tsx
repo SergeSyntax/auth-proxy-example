@@ -5,7 +5,7 @@ import { WrapperMenuListFooter } from './wrapper.style';
 
 export const Menu: React.FC = () => (
   <WrapperMenuListFooter>
-    {FOOTER_MENU_LIST.map((item) => (
+    {FOOTER_MENU_LIST.map(item => (
       <ItemMenuFooter key={item.title} {...item} />
     ))}
   </WrapperMenuListFooter>

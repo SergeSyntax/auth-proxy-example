@@ -23,11 +23,11 @@ export const UserOptions: React.FC = () => {
         onClose={closeDropdown}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'center',
+          horizontal: 'center'
         }}
       >
         <MenuItem
-          onClick={(e) => {
+          onClick={e => {
             location.replace('/api/logout');
           }}
         >

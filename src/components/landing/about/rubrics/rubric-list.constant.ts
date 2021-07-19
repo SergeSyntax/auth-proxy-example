@@ -5,7 +5,7 @@ export const RUBRICS = [
       organized, detailed and simple: get more work done by breaking your goals down to tasks
       and prioritize them by the sections you define.`,
     illustration: '/img/rubric-list-scutch.svg',
-    alt: 'about-paragraph',
+    alt: 'about-paragraph'
   },
   {
     title: 'where services free!',
@@ -13,7 +13,7 @@ export const RUBRICS = [
       the developers working on that project doing that voluntarily for other developers to use,
       there is a donation option for hosing expenses.`,
     illustration: '/img/rubric-list-choose.svg',
-    alt: 'about-paragraph',
+    alt: 'about-paragraph'
   },
   {
     title: 'where your opinion matters!',
@@ -22,6 +22,6 @@ export const RUBRICS = [
       make it happen, our Team always working on forwarding our project and we open for
       suggestions.`,
     illustration: '/img/rubric-list-phone.svg',
-    alt: 'about-paragraph',
-  },
+    alt: 'about-paragraph'
+  }
 ];

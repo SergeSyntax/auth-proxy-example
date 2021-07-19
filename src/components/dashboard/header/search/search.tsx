@@ -15,7 +15,7 @@ const SearchDashboard: React.FC = () => {
       <IconSearch />
       <InputSearchDashboard
         value={term}
-        onChange={(e) => setTerm(e.target.value)}
+        onChange={e => setTerm(e.target.value)}
         placeholder="Search Content"
         inputProps={{ 'aria-label': 'search google maps' }}
       />

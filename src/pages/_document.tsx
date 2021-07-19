@@ -54,23 +54,23 @@ class MyDocument extends Document {
     ctx.renderPage = () =>
       originalRenderPage({
         // useful for wrapping the whole react tree
-        enhanceApp: (App) => App,
+        enhanceApp: App => App,
 
         // useful for wrapping in a per-page basis
         // Take precedence over the CacheProvider in our custom _app.js
         // eslint-disable-next-line react/display-name
-        enhanceComponent: (Component) => (props) =>
+        enhanceComponent: Component => props =>
           (
             <CacheProvider value={cache}>
               <Component {...props} />
             </CacheProvider>
-          ),
+          )
       });
 
     // Run the parent `getInitialProps`, it now includes the custom `renderPage`
     const initialProps = await Document.getInitialProps(ctx);
     const emotionStyles = extractCriticalToChunks(initialProps.html);
-    const emotionStyleTags = emotionStyles.styles.map((style) => (
+    const emotionStyleTags = emotionStyles.styles.map(style => (
       <style
         data-emotion={`${style.key} ${style.ids.join(' ')}`}
         key={style.key}
@@ -81,7 +81,7 @@ class MyDocument extends Document {
     return {
       ...initialProps,
       // Styles fragment is rendered after the app and page rendering finish.
-      styles: [...React.Children.toArray(initialProps.styles), ...emotionStyleTags],
+      styles: [...React.Children.toArray(initialProps.styles), ...emotionStyleTags]
     };
   }
 
@@ -90,15 +90,15 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* ICON */}
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png" />
           {/* manifest.json provides metadata used when your web app 
               is installed on a user's mobile device or desktop. See 
               https://developers.google.com/web/fundamentals/web-app-manifest/ */}
-          <link rel="manifest" href="/manifest.json" />
-          <link rel="icon" href="/favicon.ico" />
-          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+          <link rel="manifest" href="/icon/manifest.json" />
+          <link rel="icon" href="/icon/favicon.ico" />
+          <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="theme-color" content={theme.palette.primary.main} />
           {/* FONTS */}

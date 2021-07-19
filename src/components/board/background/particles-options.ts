@@ -6,48 +6,48 @@ export const ParticlesOptions: ISourceOptions = {
     events: {
       onHover: {
         enable: true,
-        mode: 'repulse',
+        mode: 'repulse'
       },
-      resize: true,
+      resize: true
     },
     modes: {
       bubble: {
         distance: 400,
         duration: 2,
         opacity: 0.8,
-        size: 40,
+        size: 40
       },
       push: {
-        quantity: 4,
+        quantity: 4
       },
       repulse: {
         distance: 100,
-        duration: 0.4,
+        duration: 0.4
       },
       grab: {
         distance: 400,
         line_linked: {
-          opacity: 1,
-        },
+          opacity: 1
+        }
       },
       remove: {
-        quantity: 2,
-      },
-    },
+        quantity: 2
+      }
+    }
   },
   particles: {
     color: {
-      value: '#ffffff',
+      value: '#ffffff'
     },
     links: {
       color: '#ffffff',
       distance: 150,
       enable: true,
       opacity: 0.4,
-      width: 1,
+      width: 1
     },
     collisions: {
-      enable: true,
+      enable: true
     },
     move: {
       enable: true,
@@ -60,15 +60,15 @@ export const ParticlesOptions: ISourceOptions = {
       attract: {
         enable: false,
         rotateX: 600,
-        rotateY: 1200,
-      },
+        rotateY: 1200
+      }
     },
     number: {
       value: 20,
       density: {
         enable: true,
-        value_area: 800,
-      },
+        value_area: 800
+      }
     },
     opacity: {
       value: 0.5,
@@ -77,21 +77,21 @@ export const ParticlesOptions: ISourceOptions = {
         enable: false,
         speed: 1,
         opacity_min: 0.1,
-        sync: false,
-      },
+        sync: false
+      }
     },
     lineLinked: {
       enable: true,
       distance: 150,
       color: '#ffffff',
       opacity: 0.4,
-      width: 1,
+      width: 1
     },
     shape: {
       type: 'circle',
       polygon: {
-        sides: 5,
-      },
+        sides: 5
+      }
     },
     size: {
       value: 3,
@@ -100,8 +100,8 @@ export const ParticlesOptions: ISourceOptions = {
         enable: false,
         speed: 40,
         size_min: 0.1,
-        sync: false,
-      },
-    },
-  },
+        sync: false
+      }
+    }
+  }
 };

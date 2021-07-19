@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --dir src",
-    "format": "npx prettier --write .",
+    "format": "npx prettier --ignore-path .gitignore --write .",
     "mock": "node ./mock/server.js",
     "mock:dev": "nodemon ./mock/server.js",
     "premock": "node ./mock/generateData.js",

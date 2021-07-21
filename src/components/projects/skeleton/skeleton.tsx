@@ -12,12 +12,10 @@ export const SkeletonProject: React.FC = () => {
   const [height] = useState(process.browser ? window.innerHeight : 0);
   const skeletonNum = Math.floor(height / HEIGHT_PER_ITEM) + 1;
 
-  console.log(skeletonNum);
-
   return (
     <Fragment>
-      {_.times(skeletonNum, i => (
-        <ShapeSkeletonProject key={i} variant="rectangular" animation="wave" />
+      {_.times(5, i => (
+        <ShapeSkeletonProject as="div" key={i} variant="rectangular" animation="wave" />
       ))}
     </Fragment>
   );

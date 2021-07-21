@@ -1,42 +1,26 @@
-import { AppBar, Grid, styled, Toolbar } from '@material-ui/core';
+import { Grid, Toolbar } from '@material-ui/core';
 import React from 'react';
-import { Logo } from 'src/components/common/logo';
 import { UserOptions } from 'src/components/dashboard/header/user-options';
 import { LocationBoard } from '../location';
+import { LogoBoard } from '../logo';
+import { AppBarHeaderBoard } from './app-bar';
+import { RowHeaderBoard } from './row';
 
 interface Props {}
 
-const AppBarBoard = styled(AppBar)`
-  background: hsla(0, 0%, 100%, 0.24);
-  padding-top: 0.6rem;
-`;
-
-const RowAppBarBoard = styled(Grid)`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0.6rem 0;
-`;
-
-const LogoBoard = styled(Logo)`
-  font-size: 3.5rem;
-`;
-
 export const HeaderBoard: React.FC<Props> = props => {
   return (
-    <AppBarBoard position="static">
+    <AppBarHeaderBoard position="static">
       <Grid component={Toolbar} container direction="column">
-        <RowAppBarBoard>
+        <RowHeaderBoard>
           <LogoBoard />
           <UserOptions />
-        </RowAppBarBoard>
-        <RowAppBarBoard>
+        </RowHeaderBoard>
+        <RowHeaderBoard>
           <LocationBoard projectId="etst" />
           <div></div>
-        </RowAppBarBoard>
+        </RowHeaderBoard>
       </Grid>
-    </AppBarBoard>
+    </AppBarHeaderBoard>
   );
 };

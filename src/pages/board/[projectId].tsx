@@ -3,8 +3,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import { LayoutBoard } from 'src/components/board/layout';
 import { WrapperBoard } from 'src/components/board/wrapper';
 import { HeaderBoard } from 'src/components/board/header/header';
-import { SectionsBoard } from 'src/components/board/sections';
-import { useProject } from 'src/components/projects/useProject';
+import { SectionsBoard } from 'src/components/sections';
 import { ContentBoard } from 'src/components/board/content.style';
 
 interface Props {
@@ -12,8 +11,6 @@ interface Props {
 }
 
 const Board: NextPage<Props> = ({ projectId }) => {
-  const { data } = useProject(projectId);
-
   return (
     <LayoutBoard>
       <WrapperBoard>

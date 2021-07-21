@@ -1,14 +1,11 @@
 import httpProxy, { ProxyReqCallback, ProxyResCallback, ServerOptions } from 'http-proxy';
 import { NextApiRequest, NextApiResponse } from 'next';
 import Cookies from 'cookies';
-import { COOKIE_AUTH_KEY } from 'config/const';
+import { AUTHORIZATION_KEY, COOKIE_AUTH_KEY, getBearerToken, TARGET_URL } from 'config/const';
 
 /**
  * extract the target api route from the env variables or use the default
  */
-const TARGET_URL = process.env.API_URL || 'http://localhost:5000/api';
-
-const AUTHORIZATION_KEY = 'Authorization';
 
 /**
  * creating a new proxy server with the http-proxy library
@@ -43,7 +40,7 @@ const proxyRequestCallback: ProxyReqCallback = (proxyReq, req, res, _options) =>
   const authToken = cookies.get(COOKIE_AUTH_KEY);
   req.headers.cookie = '';
 
-  if (authToken) proxyReq.setHeader(AUTHORIZATION_KEY, `Bearer ${authToken}`);
+  if (authToken) proxyReq.setHeader(AUTHORIZATION_KEY, getBearerToken(authToken));
 };
 
 const proxyResponseCallback: ProxyResCallback = (proxyRes, req, res) => {

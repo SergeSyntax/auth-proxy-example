@@ -1,74 +1,60 @@
-import React, { useState } from 'react';
-import { TextField } from 'src/components/common/fields/text/material';
-import { Field, Form, Formik } from 'formik';
-import { styled } from '@material-ui/core';
-import SubmitButton from 'src/components/common/button/submit/submit';
-import { css } from '@emotion/react';
+import React from 'react';
+import { Field, Formik } from 'formik';
+import { ProjectRes } from 'src/components/common/@types/project-res.interface';
+import { WrapperFormDeleteProject } from './wrapper';
+import { LabelFormDeleteProject } from './label';
+import { ButtonFormDeleteProject } from './button';
+import { ValuesFormDeleteProject } from './values.interface';
+import { FieldFormDeleteProject } from './field';
+import { useDeleteProject } from './useDeleteProject';
 
 interface Props {
-  projectId: string;
-  projectTitle: string;
+  project: ProjectRes;
+  handleClose: () => void;
 }
 
-interface FormValues {
-  title: string;
-}
+export const FormDeleteProject: React.FC<Props> = ({ project, handleClose }) => {
+  const { mutateAsync, isLoading } = useDeleteProject();
 
-const WrapperFormDeleteProject = styled(Form)`
-  background: #f6f8fa;
-  padding: ${({ theme }) => theme.spacing(2)};
-`;
-
-const LabelFormDeleteProject = styled('label')`
-  display: block;
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
-`;
-
-const ButtonFormDeleteProject = styled(SubmitButton)`
-  ${({ theme }) => css`
-    && {
-      transition: all 0.2s;
-      color: #fff;
-      font-size: 1.4rem;
-      &,
-      &:hover {
-        background: ${theme.palette.error.main};
-      }
-
-      &:disabled {
-        background: ${theme.palette.grey[300]};
-      }
-    }
-  `}
-`;
-
-const FieldFormDeleteProject = styled(TextField)`
-  .MuiFormHelperText-root {
-    display: none;
-  }
-`;
-
-export const FormDeleteProject: React.FC<Props> = ({ projectId, projectTitle }) => {
+  const onSubmit = async () => {
+    await mutateAsync(project.id);
+    handleClose();
+  };
   return (
-    <Formik<FormValues> onSubmit={console.log} initialValues={{ title: '' }}>
-      {({ values }) => {
+    <Formik<ValuesFormDeleteProject>
+      onSubmit={onSubmit}
+      initialValues={{ title: '' }}
+      validateOnChange
+      validateOnMount
+      validate={values => {
+        console.log(values);
+
+        const errors: any = {};
+
+        if (values.title !== project.title) errors.title = 'required';
+
+        return errors;
+      }}
+    >
+      {({ isValid, handleChange, handleBlur }) => {
         return (
           <WrapperFormDeleteProject autoComplete="off" noValidate>
-            <LabelFormDeleteProject htmlFor="project-title">
-              Please type <strong>{projectTitle}</strong> to confirm.
+            <LabelFormDeleteProject htmlFor="title">
+              Please type <strong>{project.title}</strong> to confirm.
             </LabelFormDeleteProject>
             <Field
               size="small"
-              id="project-title"
+              id="title"
               autoFocus
               name="title"
+              onChange={handleChange}
+              onBlur={handleBlur}
               component={FieldFormDeleteProject}
             />
             <ButtonFormDeleteProject
               color="error"
-              inProgress={false}
-              disabled={values.title !== projectTitle}
+              inProgress={isLoading}
+              disabled={!isValid}
               fullWidth
               text="I understand the consequences, delete this project"
             />

@@ -1,6 +1,7 @@
 import { Dialog, ListItemIcon, MenuItem } from '@material-ui/core';
 import React, { Fragment } from 'react';
 import { GoX } from 'react-icons/go';
+import { ProjectRes } from 'src/components/common/@types/project-res.interface';
 import { useDialog } from 'src/components/common/dialog.hook';
 import { ContentDeleteProject } from './content';
 import { FormDeleteProject } from './form';
@@ -8,9 +9,10 @@ import { HeaderDeleteProject } from './header';
 
 interface Props {
   onClick: () => void;
+  project: ProjectRes;
 }
 
-export const DeleteProject: React.FC<Props> = ({ onClick }) => {
+export const DeleteProject: React.FC<Props> = ({ onClick, project }) => {
   const { open, handleOpen, handleClose, handleTabPropagation } = useDialog(false, onClick);
   return (
     <Fragment>
@@ -22,8 +24,8 @@ export const DeleteProject: React.FC<Props> = ({ onClick }) => {
       </MenuItem>
       <Dialog maxWidth="sm" open={open} onClose={handleClose} onKeyDown={handleTabPropagation}>
         <HeaderDeleteProject handleClose={handleClose} />
-        <ContentDeleteProject projectTitle="G.E.N.E.S.I.S" />
-        <FormDeleteProject projectTitle="G.E.N.E.S.I.S" projectId="ewge" />
+        <ContentDeleteProject projectTitle={project.title} />
+        <FormDeleteProject project={project} handleClose={handleClose} />
       </Dialog>
     </Fragment>
   );

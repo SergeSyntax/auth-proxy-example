@@ -21,7 +21,7 @@ export const ItemProject: React.FC<Props> = ({ project }) => {
         </CardActionArea>
       </Link>
 
-      <MenuItemProject />
+      <MenuItemProject project={project} />
     </WrapperItemProject>
   );
 };

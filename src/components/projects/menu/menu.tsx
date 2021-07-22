@@ -1,12 +1,15 @@
 import { IconButton, ListItemIcon, Menu, MenuItem } from '@material-ui/core';
 import React, { Fragment } from 'react';
 import { GoKebabVertical, GoPencil, GoX } from 'react-icons/go';
+import { ProjectRes } from 'src/components/common/@types/project-res.interface';
 import { useDropdown } from 'src/components/common/dropdown.hook';
 import { DeleteProject } from '../delete/delete';
 
-interface Props {}
+interface Props {
+  project: ProjectRes;
+}
 
-export const MenuItemProject: React.FC<Props> = () => {
+export const MenuItemProject: React.FC<Props> = ({ project }) => {
   const { dropdown, openDropdown, closeDropdown } = useDropdown(null);
 
   return (
@@ -33,7 +36,7 @@ export const MenuItemProject: React.FC<Props> = () => {
           Edit
         </MenuItem>
 
-        <DeleteProject onClick={closeDropdown} />
+        <DeleteProject project={project} onClick={closeDropdown} />
       </Menu>
     </Fragment>
   );

@@ -27,7 +27,7 @@ export const UserOptions: React.FC = () => {
         }}
       >
         <MenuItem
-          onClick={e => {
+          onClick={() => {
             location.replace('/api/logout');
           }}
         >

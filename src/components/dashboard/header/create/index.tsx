@@ -3,9 +3,9 @@ import React, { Fragment } from 'react';
 import { AiOutlineUsergroupAdd } from 'react-icons/ai';
 import { RiMailSendLine } from 'react-icons/ri';
 import { CreateButton } from './button';
-import CreateProject from '../../../projects/create';
 import { CreateMenu } from './menu.style';
 import { useDropdown } from 'src/components/common/dropdown.hook';
+import CreateProject from 'src/components/projects/create/create';
 
 export const Create: React.FC = () => {
   const { dropdown, openDropdown, closeDropdown } = useDropdown(null);

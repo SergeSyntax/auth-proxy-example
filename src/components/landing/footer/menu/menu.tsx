@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Logo } from 'src/components/common/logo';
+import { Logo } from 'src/components/common/layout/logo';
 import { Menu } from './list';
 import { WrapperFooterMenu } from './wrapper';
 

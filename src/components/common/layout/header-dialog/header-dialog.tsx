@@ -5,13 +5,14 @@ import { CloseButton } from './close-button.style';
 import { MdClose } from 'react-icons/md';
 interface Props {
   handleClose: React.MouseEventHandler<HTMLButtonElement>;
+  title: string;
 }
 
-const DialogHeader: React.FC<Props> = ({ handleClose }) => {
+export const DialogHeader: React.FC<Props> = ({ handleClose, title }) => {
   return (
     <DialogHeaderWrapper>
       <Typography variant="h6" component="span">
-        Create Project
+        {title}
       </Typography>
       <CloseButton aria-label="close" onClick={handleClose}>
         <MdClose />
@@ -19,5 +20,3 @@ const DialogHeader: React.FC<Props> = ({ handleClose }) => {
     </DialogHeaderWrapper>
   );
 };
-
-export default DialogHeader;

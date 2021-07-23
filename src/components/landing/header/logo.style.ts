@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { styled } from '@material-ui/core/styles';
-import { Logo } from 'src/components/common/logo';
+import { Logo } from 'src/components/common/layout/logo';
 import { moveInLeft } from './animations/move-in-left.keyframe';
 
 export const LogoHeaderLanding = styled(Logo)`

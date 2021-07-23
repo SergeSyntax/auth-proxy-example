@@ -1,5 +1,5 @@
 import { styled } from '@material-ui/core/styles';
-import { Logo } from 'src/components/common/logo';
+import { Logo } from 'src/components/common/layout/logo';
 
 export const LogoPasswordRecovery = styled(Logo)`
   && {

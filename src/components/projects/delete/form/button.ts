@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { styled } from '@material-ui/core';
-import SubmitButton from 'src/components/common/button/submit/submit';
+import { SubmitButton } from 'src/components/common/button/submit';
 
 export const ButtonFormDeleteProject = styled(SubmitButton)`
   ${({ theme }) => css`

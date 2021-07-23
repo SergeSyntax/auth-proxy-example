@@ -1,9 +1,9 @@
 import React from 'react';
 import { IconType } from 'react-icons/lib';
-import { InputLabeledPasswordLabelIcon } from './icon.style';
-import { PasswordLabelWrapper } from './wrapper.style';
 import { IoEyeSharp, IoEyeOffSharp } from 'react-icons/io5';
-import { PasswordLabelButton } from './button.style';
+import { ButtonPasswordLabel } from './button.style';
+import { IconLabel } from '../../label/icon.style';
+import { WrapperLabel } from '../../label/wrapper.style';
 
 interface Props {
   htmlFor: string;
@@ -22,13 +22,13 @@ export const PasswordLabel: React.FC<Props> = ({
   setIsHidden
 }) => {
   return (
-    <PasswordLabelWrapper htmlFor={htmlFor}>
-      <InputLabeledPasswordLabelIcon component={icon} />
+    <WrapperLabel htmlFor={htmlFor}>
+      <IconLabel component={icon} />
       <span>{name}</span>
-      <PasswordLabelButton onClick={setIsHidden}>
+      <ButtonPasswordLabel onClick={setIsHidden}>
         {isHidden ? <IoEyeOffSharp /> : <IoEyeSharp />}
-      </PasswordLabelButton>
+      </ButtonPasswordLabel>
       {children}
-    </PasswordLabelWrapper>
+    </WrapperLabel>
   );
 };

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { CreateSection } from '../create';
 import { ItemSection } from '../item';
 import { SkeletonSection } from '../skeleton';
 import { useSections } from '../use-sections';
@@ -15,7 +16,14 @@ export const ListSection: React.FC<Props> = ({ projectId }) => {
       {isLoading ? (
         <SkeletonSection />
       ) : (
-        data?.map((section, index) => <ItemSection key={index} section={section} />)
+        <Fragment>
+          {/* List */}
+          {data?.map((section, index) => (
+            <ItemSection key={index} section={section} />
+          ))}
+          {/* Create new */}
+          <CreateSection projectId={projectId} />
+        </Fragment>
       )}
     </WrapperListSection>
   );

@@ -1,8 +1,8 @@
 import { Field } from 'formik';
 import React, { Fragment } from 'react';
 import { IconType } from 'react-icons/lib';
-import { Label } from './label';
-import { SelectField, SelectOptions } from './select';
+import { Label } from '../label';
+import { SelectField, SelectOptions } from '../select';
 
 export interface SelectProps {
   icon: IconType;
@@ -12,7 +12,7 @@ export interface SelectProps {
   values: SelectOptions[];
 }
 
-export const LabeledSelectField: React.FC<SelectProps> = ({ icon, name, label, ...rest }) => {
+export const SelectFieldset: React.FC<SelectProps> = ({ icon, name, label, ...rest }) => {
   return (
     <Fragment>
       <Label icon={icon} htmlFor={label ? label : name} name={name} />

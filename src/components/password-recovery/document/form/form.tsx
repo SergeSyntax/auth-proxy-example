@@ -7,7 +7,7 @@ import { ValuesPasswordRecovery } from './values.interface';
 import { SchemaPasswordRecovery } from './schema';
 import { CancelButtonPasswordRecovery } from './cancel-button.style';
 import { ApproveButtonPasswordRecovery } from './approve-button.style';
-import { LabeledTextField } from 'src/components/common/fields/text-labeled';
+import { TextFieldset } from 'src/components/common/fields/fieldset/text';
 
 const FormPasswordRecovery: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const FormPasswordRecovery: React.FC = () => {
       {({ isSubmitting }) => {
         return (
           <Form autoComplete="off" noValidate>
-            <LabeledTextField
+            <TextFieldset
               icon={MdMailOutline}
               name="email"
               type="email"

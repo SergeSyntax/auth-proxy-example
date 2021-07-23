@@ -3,12 +3,12 @@ import { Form, Formik } from 'formik';
 import { TiTag } from 'react-icons/ti';
 import { DialogActions } from '@material-ui/core';
 import { createProjectValidationSchema } from './schema';
-import { LabeledTextField } from 'src/components/common/fields/text-labeled';
-import { LabeledSelectField } from 'src/components/common/fields/select-labled';
 import { TextButton } from 'src/components/common/button/text-button';
-import SubmitButton from 'src/components/common/button/submit/submit';
 import { SelectOptions } from 'src/components/common/fields/select';
 import { useCreateProject } from './useCreateProject';
+import { TextFieldset } from 'src/components/common/fields/fieldset/text';
+import { SelectFieldset } from 'src/components/common/fields/fieldset/select';
+import { SubmitButton } from 'src/components/common/button/submit';
 
 interface FormValues {
   title: string;
@@ -43,13 +43,8 @@ const CreateProjectForm = ({ handleClose }: Props) => {
       {() => {
         return (
           <Form autoComplete="off" noValidate>
-            <LabeledTextField
-              icon={TiTag}
-              name="title"
-              type="text"
-              placeholder="i.e. SkyNet Project"
-            />
-            <LabeledSelectField icon={TiTag} name="accessibility" values={values} />
+            <TextFieldset icon={TiTag} name="title" type="text" placeholder="i.e. SkyNet Project" />
+            <SelectFieldset icon={TiTag} name="accessibility" values={values} />
             <DialogActions>
               <TextButton onClick={handleClose}>cancel</TextButton>
               <SubmitButton inProgress={isLoading} text="create" />

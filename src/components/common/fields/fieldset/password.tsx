@@ -1,18 +1,10 @@
 import { Field } from 'formik';
 import React, { Fragment, useState } from 'react';
-import { PasswordLabel } from './label';
-import { TextField } from '../text/material';
-import { IconType } from 'react-icons/lib';
+import { PasswordLabel } from '../label/password';
+import { TextField } from '../text';
+import { FieldsetProps } from './FieldsetProps.interface';
 
-export interface PasswordFieldProps {
-  icon: IconType;
-  name: string;
-  placeholder: string;
-  label?: string;
-  helperText?: string;
-}
-
-const PasswordField: React.FC<PasswordFieldProps> = ({ icon, name, label, ...rest }) => {
+export const PasswordFieldset: React.FC<FieldsetProps> = ({ icon, name, label, ...rest }) => {
   const [isHidden, setIsHidden] = useState(true);
 
   return (
@@ -28,5 +20,3 @@ const PasswordField: React.FC<PasswordFieldProps> = ({ icon, name, label, ...res
     </Fragment>
   );
 };
-
-export default PasswordField;

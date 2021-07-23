@@ -1,4 +1,4 @@
-import { styled } from '@material-ui/core/styles';
+import { styled } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import { IconType } from 'react-icons/lib';
 
@@ -11,5 +11,5 @@ export const IconLabel = styled(
 )`
   margin-left: 1rem;
   margin-right: 0.7rem;
-  font-size: 1.2em;
+  font-size: 1.1em;
 `;

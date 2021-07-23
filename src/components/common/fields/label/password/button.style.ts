@@ -1,7 +1,7 @@
 import { styled } from '@material-ui/core/styles';
 import { IconButton } from '@material-ui/core';
 
-export const PasswordLabelButton = styled(IconButton)`
+export const ButtonPasswordLabel = styled(IconButton)`
   font-size: 1.9rem;
   color: #303030;
   font-weight: bold;

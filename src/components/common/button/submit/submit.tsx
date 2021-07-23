@@ -8,7 +8,7 @@ interface Props extends ButtonProps {
   text?: string;
 }
 
-const SubmitButton: React.FC<Props> = ({ text = 'Submit', inProgress, ...rest }) => {
+export const SubmitButton: React.FC<Props> = ({ text = 'Submit', inProgress, ...rest }) => {
   return (
     <MaterialButton
       variant="contained"
@@ -21,5 +21,3 @@ const SubmitButton: React.FC<Props> = ({ text = 'Submit', inProgress, ...rest })
     </MaterialButton>
   );
 };
-
-export default SubmitButton;

@@ -3,7 +3,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import { LayoutBoard } from 'src/components/board/layout';
 import { WrapperBoard } from 'src/components/board/wrapper';
 import { HeaderBoard } from 'src/components/board/header/header';
-import { SectionsBoard } from 'src/components/sections';
+import { ListSection } from 'src/components/sections';
 import { ContentBoard } from 'src/components/board/content.style';
 
 interface Props {
@@ -14,9 +14,9 @@ const Board: NextPage<Props> = ({ projectId }) => {
   return (
     <LayoutBoard>
       <WrapperBoard>
-        <HeaderBoard />
+        <HeaderBoard projectId={projectId} />
         <ContentBoard>
-          <SectionsBoard projectId={projectId} />
+          <ListSection projectId={projectId} />
         </ContentBoard>
       </WrapperBoard>
     </LayoutBoard>

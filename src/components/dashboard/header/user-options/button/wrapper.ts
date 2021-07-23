@@ -5,4 +5,5 @@ export const WrapperButtonUserOptions = styled(Button)`
   padding: unset;
   border-radius: 100%;
   min-width: unset;
+  position: relative;
 `;

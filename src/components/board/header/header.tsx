@@ -6,9 +6,11 @@ import { LogoBoard } from '../logo';
 import { AppBarHeaderBoard } from './app-bar';
 import { RowHeaderBoard } from './row';
 
-interface Props {}
+interface Props {
+  projectId: string;
+}
 
-export const HeaderBoard: React.FC<Props> = props => {
+export const HeaderBoard: React.FC<Props> = ({ projectId }) => {
   return (
     <AppBarHeaderBoard position="static">
       <Grid component={Toolbar} container direction="column">
@@ -17,7 +19,7 @@ export const HeaderBoard: React.FC<Props> = props => {
           <UserOptions />
         </RowHeaderBoard>
         <RowHeaderBoard>
-          <LocationBoard projectId="etst" />
+          <LocationBoard projectId={projectId} />
           <div></div>
         </RowHeaderBoard>
       </Grid>

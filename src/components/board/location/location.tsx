@@ -1,10 +1,22 @@
-import { Breadcrumbs, Chip, CircularProgress, emphasize, styled } from '@material-ui/core';
+import {
+  Breadcrumbs,
+  Chip,
+  CircularProgress,
+  emphasize,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  styled
+} from '@material-ui/core';
+import { grey } from '@material-ui/core/colors';
 import Link from 'next/link';
 import React, { createElement, Fragment, useState } from 'react';
 import { AiOutlineFolder, AiOutlineFolderOpen } from 'react-icons/ai';
 import { GoHome } from 'react-icons/go';
 import { MdExpandMore } from 'react-icons/md';
 import { useDropdown } from 'src/components/common/dropdown.hook';
+import { useProject } from 'src/components/projects/use-project';
+import { MenuLocation } from './menu';
 
 const BreadcrumbsBoard = styled(Breadcrumbs)`
   color: #fff;
@@ -57,7 +69,8 @@ interface Props {
 
 export const LocationBoard: React.FC<Props> = ({ projectId }) => {
   const { dropdown, openDropdown, closeDropdown } = useDropdown(null);
-  const loadingProject = false;
+  const { data, isLoading } = useProject(projectId);
+
   return (
     <Fragment>
       <BreadcrumbsBoard>
@@ -68,19 +81,21 @@ export const LocationBoard: React.FC<Props> = ({ projectId }) => {
         <Link passHref href="/dashboard/projects">
           <ChipBoard label="Projects" avatar={createElement(AiOutlineFolder)} />
         </Link>
-        {loadingProject ? (
+        {isLoading ? (
           <ProgressBoard color="inherit" size={15} />
         ) : (
           <ChipBoard
             onClick={openDropdown as any}
-            label={'genesis'}
+            label={data?.title}
             avatar={createElement(AiOutlineFolderOpen)}
             deleteIcon={createElement(MdExpandMore)}
             onDelete={openDropdown}
           />
         )}
       </BreadcrumbsBoard>
-      {/* <ProjectListMenu projectId={projectId} anchorEl={anchorEl} closeMenu={closeMenu} /> */}
+      {!isLoading && (
+        <MenuLocation dropdown={dropdown} closeDropdown={closeDropdown} projectId={projectId} />
+      )}
     </Fragment>
   );
 };

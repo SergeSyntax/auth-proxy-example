@@ -15,7 +15,7 @@ export const SkeletonProject: React.FC = () => {
   return (
     <Fragment>
       {_.times(5, i => (
-        <ShapeSkeletonProject as="div" key={i} variant="rectangular" animation="wave" />
+        <ShapeSkeletonProject key={i} variant="rectangular" animation="wave" />
       ))}
     </Fragment>
   );

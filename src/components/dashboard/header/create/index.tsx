@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { AiOutlineUsergroupAdd } from 'react-icons/ai';
 import { RiMailSendLine } from 'react-icons/ri';
 import { CreateButton } from './button';
-import { CreateMenu } from './menu.style';
+import { MenuCreate } from './menu.style';
 import { useDropdown } from 'src/components/common/dropdown.hook';
 import CreateProject from 'src/components/projects/create/create';
 
@@ -14,7 +14,7 @@ export const Create: React.FC = () => {
     <Fragment>
       <CreateButton onClick={openDropdown} />
 
-      <CreateMenu
+      <MenuCreate
         id="simple-menu"
         anchorEl={dropdown}
         keepMounted
@@ -34,7 +34,7 @@ export const Create: React.FC = () => {
           <RiMailSendLine />
           New Chat
         </MenuItem>
-      </CreateMenu>
+      </MenuCreate>
     </Fragment>
   );
 };

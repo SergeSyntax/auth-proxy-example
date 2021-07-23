@@ -1,7 +1,8 @@
 import { styled } from '@material-ui/core';
 
-export const WrapperSectionsBoard = styled('div')`
+export const WrapperListSection = styled('div')`
   margin: 1rem;
+  padding: 1rem 0;
   position: absolute;
   inset: 0;
 

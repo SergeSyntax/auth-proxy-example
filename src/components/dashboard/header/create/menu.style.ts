@@ -2,7 +2,7 @@ import { styled } from '@material-ui/core/styles';
 import { Menu } from '@material-ui/core';
 import { grey } from '@material-ui/core/colors';
 
-export const CreateMenu = styled(Menu)`
+export const MenuCreate = styled(Menu)`
   & .MuiPaper-root.MuiPopover-paper.MuiPopover-paper {
     min-width: 22rem;
     top: 6.94rem !important;

@@ -17,16 +17,16 @@ const Projects: React.FC = props => {
   );
 };
 
-// This gets called on every request
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery('projects', getProjects);
+// // This gets called on every request
+// export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+//   const queryClient = new QueryClient();
+//   await queryClient.prefetchQuery('projects', getProjects);
 
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient)
-    }
-  };
-};
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(queryClient)
+//     }
+//   };
+// };
 
 export default Projects;

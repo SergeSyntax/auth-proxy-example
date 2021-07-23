@@ -8,6 +8,7 @@ export const WrapperListSection = styled('div')`
 
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
 
   overflow-x: auto;
   overflow-y: hidden;

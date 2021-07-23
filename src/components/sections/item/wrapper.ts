@@ -4,7 +4,5 @@ export const WrapperItemSection = styled(Card)`
   background: #ebecf0;
   flex-shrink: 0;
   margin-left: 1rem;
-
   min-width: 25rem;
-  height: 100%;
 `;

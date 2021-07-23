@@ -1,5 +1,6 @@
 import React from 'react';
 import { SectionRes } from '../section-res.interface';
+import { HeaderItemSection } from './header';
 import { WrapperItemSection } from './wrapper';
 
 interface Props {
@@ -7,5 +8,9 @@ interface Props {
 }
 
 export const ItemSection: React.FC<Props> = ({ section }) => {
-  return <WrapperItemSection>{section.title}</WrapperItemSection>;
+  return (
+    <WrapperItemSection>
+      <HeaderItemSection section={section} />
+    </WrapperItemSection>
+  );
 };

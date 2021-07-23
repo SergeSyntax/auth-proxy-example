@@ -21,7 +21,6 @@ export const MenuItemProject: React.FC<Props> = ({ project }) => {
       </IconButton>
 
       <Menu
-        id="simple-menu"
         anchorEl={dropdown}
         keepMounted
         open={Boolean(dropdown)}

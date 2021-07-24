@@ -7,6 +7,8 @@ import { ValuesSection } from './values.interface';
 import { styled } from '@material-ui/core';
 import { SubmitButton } from 'src/components/common/button/submit';
 import { SmallTextFieldset } from 'src/components/common/fields/fieldset/small-text';
+import { IconButton } from 'src/components/common/button/icon/icon';
+import { GoX } from 'react-icons/go';
 
 interface Props {
   handleClose: () => void;
@@ -15,6 +17,7 @@ interface Props {
 
 const ActionsFormCreateSections = styled('div')`
   display: flex;
+  align-items: center;
 `;
 
 const WrapperFormCreateSection = styled(Form)`
@@ -39,13 +42,23 @@ export const FormCreateSection = ({ handleClose, projectId }: Props) => {
         handleClose();
       }}
     >
-      {({ handleSubmit }) => {
+      {() => {
         return (
           <WrapperFormCreateSection autoComplete="off" noValidate>
             <SmallTextFieldset icon={TiTag} name="title" type="text" placeholder="i.e. Todo" />
             <ActionsFormCreateSections>
               {/* <SmallTextButton onClick={handleClose}>cancel</SmallTextButton> */}
               <SmallSubmitButton type="submit" inProgress={isLoading} text="create" />
+              <IconButton
+                icon={GoX}
+                size="small"
+                onClick={handleClose}
+                style={{
+                  fontSize: '1.8rem',
+                  marginBottom: '1rem',
+                  marginLeft: '1rem'
+                }}
+              />
             </ActionsFormCreateSections>
           </WrapperFormCreateSection>
         );

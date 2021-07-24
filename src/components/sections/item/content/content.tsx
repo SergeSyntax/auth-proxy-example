@@ -1,4 +1,3 @@
-import { styled } from '@material-ui/core';
 import React from 'react';
 import { CreateTask, ListTask } from 'src/components/tasks';
 import { SectionRes } from '../../section-res.interface';

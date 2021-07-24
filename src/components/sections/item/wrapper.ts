@@ -5,4 +5,6 @@ export const WrapperItemSection = styled(Card)`
   flex-shrink: 0;
   margin-left: 1rem;
   min-width: 25rem;
+  max-height: 100%;
+  overflow: hidden;
 `;

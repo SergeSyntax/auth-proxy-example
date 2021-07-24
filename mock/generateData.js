@@ -10,10 +10,10 @@ const { green, cyan } = require('chalk');
 require('dotenv').config();
 
 const NUM_OF_USERS = 1;
-const NUM_OF_PROJECTS_PER_USER = 2;
-const NUM_OF_SECTIONS_PER_PROJECT = 6;
-const NUM_OF_TASKS_PER_SECTION = 6;
-const NUM_OF_COMMENTS_PER_TASK = 3;
+const NUM_OF_PROJECTS_PER_USER = 1;
+const NUM_OF_SECTIONS_PER_PROJECT = 1;
+const NUM_OF_TASKS_PER_SECTION = 20;
+const NUM_OF_COMMENTS_PER_TASK = 1;
 
 // change from callback function to promise based
 const writeFile = promisify(fs.writeFile);

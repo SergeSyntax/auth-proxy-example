@@ -6,7 +6,7 @@ import { LabelFormDeleteProject } from './label';
 import { ButtonFormDeleteProject } from './button';
 import { ValuesFormDeleteProject } from './values.interface';
 import { FieldFormDeleteProject } from './field';
-import { useDeleteProject } from './useDeleteProject';
+import { useDeleteProject } from './use-delete-project.hook';
 
 interface Props {
   project: ProjectRes;

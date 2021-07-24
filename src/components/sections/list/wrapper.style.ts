@@ -13,11 +13,11 @@ export const WrapperListSection = styled('div')`
   overflow-x: auto;
   overflow-y: hidden;
   flex-direction: row;
-  scrollbar-width: 1rem;
+  scrollbar-width: 1.2rem;
   scrollbar-color: rgba(253, 253, 253, 0.8) rgba(0, 0, 0, 0.1);
   &::-webkit-scrollbar {
     width: 1.2rem;
-    height: 1.2 rem;
+    height: 1.2rem;
   }
   &::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1);

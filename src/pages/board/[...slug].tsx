@@ -9,13 +9,16 @@ import { SEO } from 'src/components/common/seo';
 
 interface Props {
   projectId: string;
+  taskId: string;
 }
 
-const Board: NextPage<Props> = ({ projectId }) => {
+const Board: NextPage<Props> = ({ projectId, taskId }) => {
+  console.log(projectId);
+
   return (
     <LayoutBoard>
       <SEO
-        title="Board | Assign"
+        title="Board"
         description="Assign is the agile project management tool of choice for developers around the world for real-time collaboration around a shared, prioritized backlog."
       />
       <WrapperBoard>
@@ -29,7 +32,9 @@ const Board: NextPage<Props> = ({ projectId }) => {
 };
 
 // This gets called on every request
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  return { props: { projectId: query.projectId } };
+export const getServerSideProps: GetServerSideProps = async ({ query: { slug } }) => {
+  const [projectId] = slug as string[];
+
+  return { props: { projectId } };
 };
 export default Board;

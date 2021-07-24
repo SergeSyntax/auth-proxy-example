@@ -10,7 +10,7 @@ import { AlternativeLogin } from 'src/components/login/alternative';
 
 const Login: NextPage = () => (
   <WrapperLogin>
-    <SEO title="Sign In | Assign" description="Sign into Assign." />
+    <SEO title="Sign In" description="Sign into Assign." />
     <HeaderLogin />
     <DocumentLogin />
     <AlternativeLogin />

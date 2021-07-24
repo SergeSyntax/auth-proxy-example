@@ -10,7 +10,7 @@ const LayoutDashboard: React.FC<Props> = ({ children }) => {
   return (
     <WrapperDashboard>
       <SEO
-        title="Dashboard | Assign"
+        title="Dashboard"
         description="Assign is the agile project management tool of choice for developers around the world for real-time collaboration around a shared, prioritized backlog."
       />
       <HeaderDashboard />

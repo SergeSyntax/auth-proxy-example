@@ -27,7 +27,7 @@ const LinkItemTask = styled(Link)`
 
 export const ItemTask: React.FC<Props> = ({ task }) => {
   const router = useRouter();
-  const { projectId } = router.query;
+  const [projectId] = router.query.slug as string[];
 
   console.log(projectId);
 

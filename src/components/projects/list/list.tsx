@@ -1,10 +1,7 @@
-import { AxiosError } from 'axios';
 import React, { Fragment } from 'react';
-import { useQuery } from 'react-query';
-import { ProjectRes } from 'src/components/common/@types/project-res.interface';
 import { ItemProject } from '../item';
 import { SkeletonProject } from '../skeleton';
-import { getProjects, useProjects } from '../use-projects';
+import { useProjects } from '../use-projects';
 import { ContainerProjectList } from './container';
 import { WrapperListProject } from './wrapper';
 

@@ -76,7 +76,7 @@ export const LocationBoard: React.FC<Props> = ({ projectId }) => {
     <Fragment>
       {!isLoading && (
         <SEO
-          title={`${data?.title} | Assign`}
+          title={data?.title}
           description="Assign is the agile project management tool of choice for developers around the world for real-time collaboration around a shared, prioritized backlog."
         />
       )}

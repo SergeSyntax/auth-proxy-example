@@ -12,7 +12,7 @@ interface Props {
   handleClose: () => void;
 }
 
-export const FormHeaderSection = ({ section, handleClose }: Props) => {
+export const FormRenameSection = ({ section, handleClose }: Props) => {
   const { mutateAsync, isLoading } = useRenameSection();
   return (
     <Formik<ValuesRenameSection>

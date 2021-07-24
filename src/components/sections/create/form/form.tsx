@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Formik } from 'formik';
+import { Formik } from 'formik';
 import { TiTag } from 'react-icons/ti';
 import { createSectionValidationSchema } from './schema';
 import { useCreateSection } from './use-create-section.hook';
@@ -9,25 +9,25 @@ import { SubmitButton } from 'src/components/common/button/submit';
 import { SmallTextFieldset } from 'src/components/common/fields/fieldset/small-text';
 import { IconButton } from 'src/components/common/button/icon/icon';
 import { GoX } from 'react-icons/go';
+import { LineFormCreateSections } from './line';
+import { WrapperFormCreateSection } from './wrapper';
 
 interface Props {
   handleClose: () => void;
   projectId: string;
 }
 
-const ActionsFormCreateSections = styled('div')`
-  display: flex;
-  align-items: center;
-`;
-
-const WrapperFormCreateSection = styled(Form)`
-  padding: 1rem 2rem;
-`;
 const SmallSubmitButton = styled(SubmitButton)`
   && {
     min-height: 4rem;
     margin-top: 0;
   }
+`;
+
+const DismissIconButton = styled(IconButton)`
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 `;
 
 export const FormCreateSection = ({ handleClose, projectId }: Props) => {
@@ -46,20 +46,10 @@ export const FormCreateSection = ({ handleClose, projectId }: Props) => {
         return (
           <WrapperFormCreateSection autoComplete="off" noValidate>
             <SmallTextFieldset icon={TiTag} name="title" type="text" placeholder="i.e. Todo" />
-            <ActionsFormCreateSections>
-              {/* <SmallTextButton onClick={handleClose}>cancel</SmallTextButton> */}
+            <LineFormCreateSections>
               <SmallSubmitButton type="submit" inProgress={isLoading} text="create" />
-              <IconButton
-                icon={GoX}
-                size="small"
-                onClick={handleClose}
-                style={{
-                  fontSize: '1.8rem',
-                  marginBottom: '1rem',
-                  marginLeft: '1rem'
-                }}
-              />
-            </ActionsFormCreateSections>
+              <DismissIconButton type="submit" icon={GoX} size="small" onClick={handleClose} />
+            </LineFormCreateSections>
           </WrapperFormCreateSection>
         );
       }}

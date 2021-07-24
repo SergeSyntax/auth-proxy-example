@@ -11,7 +11,7 @@ import { SignatureRegistration } from 'src/components/registration/signature.sty
 const Registration: NextPage = () => {
   return (
     <WrapperRegistration>
-      <SEO title="Registration" description="create an account for Assign" />
+      <SEO title="Registration | Assign" description="create an account for Assign" />
       <HeaderRegistration />
       <DocumentRegistration />
       <SignatureRegistration />

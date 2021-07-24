@@ -9,7 +9,7 @@ import { LogoPasswordRecovery } from 'src/components/password-recovery/logo.styl
 
 const PasswordRecovery: NextPage = () => (
   <WrapperPasswordRecovery>
-    <SEO title="Password Recovery" description="Reset your assign password." />
+    <SEO title="Password Recovery | Assign" description="Reset your assign password." />
     <LogoPasswordRecovery />
     <DocumentPasswordRecovery />
   </WrapperPasswordRecovery>

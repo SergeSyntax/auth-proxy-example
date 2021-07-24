@@ -2,17 +2,14 @@ import { styled } from '@material-ui/core';
 
 export const WrapperListSection = styled('div')`
   margin: 1rem;
-  padding: 1rem 0;
+  display: flex;
   position: absolute;
   inset: 0;
+  padding: 1rem 0;
 
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-
+  // scroll
   overflow-x: auto;
   overflow-y: hidden;
-  flex-direction: row;
   scrollbar-width: 1.2rem;
   scrollbar-color: rgba(253, 253, 253, 0.8) rgba(0, 0, 0, 0.1);
   &::-webkit-scrollbar {

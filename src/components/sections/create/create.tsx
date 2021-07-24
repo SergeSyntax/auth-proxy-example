@@ -1,33 +1,13 @@
-import {
-  Button,
-  Card,
-  CardContent,
-  ClickAwayListener,
-  Collapse,
-  Fade,
-  styled
-} from '@material-ui/core';
+import { ClickAwayListener, Collapse, Fade } from '@material-ui/core';
 import React, { useState } from 'react';
+import { ButtonCreateSection } from './button';
+import { ContainerCreateSection } from './container';
 import { FormCreateSection } from './form';
 import { WrapperCreateSection } from './wrapper';
 
 interface Props {
   projectId: string;
 }
-
-const ButtonCreateSection = styled(Button)`
-  && {
-    background: hsla(0, 0%, 100%, 0.14);
-    color: #fff;
-  }
-`;
-
-const ContainerCreateSection = styled(Card)`
-  /* position: absolute;
-  top: 0;
-  width: 100%; */
-  background: #ebecf0;
-`;
 
 export const CreateSection: React.FC<Props> = ({ projectId }) => {
   const [openCreateSection, setOpenCreateSection] = useState(false);
@@ -45,6 +25,7 @@ export const CreateSection: React.FC<Props> = ({ projectId }) => {
           Create Section
         </ButtonCreateSection>
       </Fade>
+
       <ClickAwayListener
         onClickAway={e => {
           if (openCreateSection) setOpenCreateSection(false);

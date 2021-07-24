@@ -5,6 +5,7 @@ import { WrapperBoard } from 'src/components/board/wrapper';
 import { HeaderBoard } from 'src/components/board/header/header';
 import { ListSection } from 'src/components/sections';
 import { ContentBoard } from 'src/components/board/content.style';
+import { SEO } from 'src/components/common/seo';
 
 interface Props {
   projectId: string;
@@ -13,6 +14,10 @@ interface Props {
 const Board: NextPage<Props> = ({ projectId }) => {
   return (
     <LayoutBoard>
+      <SEO
+        title="Board | Assign"
+        description="Assign is the agile project management tool of choice for developers around the world for real-time collaboration around a shared, prioritized backlog."
+      />
       <WrapperBoard>
         <HeaderBoard projectId={projectId} />
         <ContentBoard>

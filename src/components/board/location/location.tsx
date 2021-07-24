@@ -15,6 +15,7 @@ import { AiOutlineFolder, AiOutlineFolderOpen } from 'react-icons/ai';
 import { GoHome } from 'react-icons/go';
 import { MdExpandMore } from 'react-icons/md';
 import { useDropdown } from 'src/components/common/dropdown.hook';
+import { SEO } from 'src/components/common/seo';
 import { useProject } from 'src/components/projects/use-project';
 import { MenuLocation } from './menu';
 
@@ -73,6 +74,13 @@ export const LocationBoard: React.FC<Props> = ({ projectId }) => {
 
   return (
     <Fragment>
+      {!isLoading && (
+        <SEO
+          title={`${data?.title} | Assign`}
+          description="Assign is the agile project management tool of choice for developers around the world for real-time collaboration around a shared, prioritized backlog."
+        />
+      )}
+
       <BreadcrumbsBoard>
         <Link passHref href="/dashboard">
           <ChipBoard label="Dashboard" avatar={createElement(GoHome)} />

@@ -3,7 +3,6 @@ import { styled } from '@material-ui/core';
 export const WrapperContentItemSection = styled('div')`
   display: flex;
   flex-direction: column;
-  max-height: ${process.browser ? window.innerHeight - 197.28 : 100}px;
   overflow-y: auto;
   overflow-x: hidden;
   margin-right: 0.4rem;

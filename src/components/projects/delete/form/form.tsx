@@ -27,8 +27,6 @@ export const FormDeleteProject: React.FC<Props> = ({ project, handleClose }) => 
       validateOnChange
       validateOnMount
       validate={values => {
-        console.log(values);
-
         const errors: any = {};
 
         if (values.title !== project.title) errors.title = 'required';

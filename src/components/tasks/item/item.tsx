@@ -29,8 +29,6 @@ export const ItemTask: React.FC<Props> = ({ task }) => {
   const router = useRouter();
   const [projectId] = router.query.slug as string[];
 
-  console.log(projectId);
-
   return (
     <LinkItemTask href={`/board/${projectId}/${task.id}`}>
       <WrapperItemTask>

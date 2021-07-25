@@ -6,6 +6,7 @@ import { HeaderBoard } from 'src/components/board/header/header';
 import { ListSection } from 'src/components/sections';
 import { ContentBoard } from 'src/components/board/content.style';
 import { SEO } from 'src/components/common/seo';
+import { PanelTask } from 'src/components/tasks/panel';
 
 interface Props {
   projectId: string;
@@ -13,7 +14,7 @@ interface Props {
 }
 
 const Board: NextPage<Props> = ({ projectId, taskId }) => {
-  console.log(projectId);
+  console.log(taskId);
 
   return (
     <LayoutBoard>
@@ -27,14 +28,15 @@ const Board: NextPage<Props> = ({ projectId, taskId }) => {
           <ListSection projectId={projectId} />
         </ContentBoard>
       </WrapperBoard>
+      <PanelTask taskId={taskId} projectId={projectId} />
     </LayoutBoard>
   );
 };
 
 // This gets called on every request
-export const getServerSideProps: GetServerSideProps = async ({ query: { slug } }) => {
-  const [projectId] = slug as string[];
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const [projectId, taskId = ''] = query.slug as string[];
 
-  return { props: { projectId } };
+  return { props: { projectId, taskId } };
 };
 export default Board;

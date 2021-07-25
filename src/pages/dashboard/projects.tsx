@@ -8,8 +8,6 @@ import { PanelProject } from 'src/components/projects/panel';
 import { getProjects } from 'src/components/projects/use-projects';
 
 const Projects: React.FC = props => {
-  console.log(props);
-
   return (
     <LayoutDashboard>
       <PanelProject />

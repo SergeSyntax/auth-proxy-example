@@ -24,7 +24,6 @@ export const FormCreateTask = ({ handleClose, sectionId }: Props) => {
         validationSchema={createSectionValidationSchema}
         initialValues={{ title: '', sectionId }}
         onSubmit={async values => {
-          console.log(values);
           await mutateAsync(values);
           handleClose();
         }}

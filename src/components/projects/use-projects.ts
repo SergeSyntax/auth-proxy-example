@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 import { useQuery } from 'react-query';
 import { ProjectRes } from 'src/components/common/@types/project-res.interface';
-import { axios } from 'src/util/axios';
+import { proxyAxios } from 'src/util/axios/proxy';
 
 interface GetProjectProps {
   _order: 'desc' | 'asc';
@@ -11,7 +11,7 @@ interface GetProjectProps {
 
 export const getProjects = () =>
   // { _order, _sort, filter: [filterKey, FilterValue] }: GetProjectProps
-  axios
+  proxyAxios
     .get<ProjectRes[]>('/projects', {
       // params: { _sort, _order, [filterKey]: FilterValue }
     })

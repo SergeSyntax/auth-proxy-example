@@ -1,7 +1,7 @@
 import { useMutation } from 'react-query';
-import { axios } from 'src/util/axios';
+import { proxyAxios } from 'src/util/axios/proxy';
 import { SectionRes } from '../section-res.interface';
 
 export const useDeleteSection = () => {
-  return useMutation((id: string) => axios.delete<SectionRes>(`/sections/${id}`));
+  return useMutation((id: string) => proxyAxios.delete<SectionRes>(`/sections/${id}`));
 };

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useMutation, useQueryClient } from 'react-query';
-import { axios } from 'src/util/axios';
+import { proxy } from 'src/util/axios';
 import { RegistrationPayload } from './registration-payload.interface';
 import { AuthRes } from '../../common/@types/auth-res.interface';
 import { AxiosError } from 'axios';
@@ -16,7 +16,7 @@ export const useRegistration = () => {
   return useMutation(
     'auth',
     (registrationPayload: RegistrationPayload) =>
-      axios.post<AuthRes>('/auth/registration/', registrationPayload),
+      proxy.post<AuthRes>('/auth/registration/', registrationPayload),
     {
       onSuccess: ({ data }, _variables, _context) => {
         queryClient.setQueryData('auth', data);

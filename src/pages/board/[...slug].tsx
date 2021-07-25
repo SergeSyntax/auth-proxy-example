@@ -6,7 +6,7 @@ import { HeaderBoard } from 'src/components/board/header/header';
 import { ListSection } from 'src/components/sections';
 import { ContentBoard } from 'src/components/board/content.style';
 import { SEO } from 'src/components/common/seo';
-import { PanelTask } from 'src/components/tasks/panel';
+import { DialogTask } from 'src/components/tasks/dialog';
 
 interface Props {
   projectId: string;
@@ -28,7 +28,7 @@ const Board: NextPage<Props> = ({ projectId, taskId }) => {
           <ListSection projectId={projectId} />
         </ContentBoard>
       </WrapperBoard>
-      <PanelTask taskId={taskId} projectId={projectId} />
+      {taskId && <DialogTask taskId={taskId} projectId={projectId} />}
     </LayoutBoard>
   );
 };

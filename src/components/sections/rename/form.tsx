@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field, Form, Formik } from 'formik';
-import { styled } from '@material-ui/core';
 import { ValuesRenameSection } from './values.interface';
 import { renameSectionValidationSchema } from './schema';
 import { SectionRes } from 'src/components/sections/section-res.interface';

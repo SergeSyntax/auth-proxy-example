@@ -1,20 +1,22 @@
-import { Dialog } from '@material-ui/core';
-import { useRouter } from 'next/router';
+import { styled } from '@material-ui/core';
 import React from 'react';
+import { HeaderTask } from '../header';
+import { TaskRes } from '../task-res.interface';
 
 interface Props {
-  taskId?: string;
-  projectId: string;
+  task: TaskRes;
+  handleClose: () => void;
 }
 
-export const PanelTask: React.FC<Props> = ({ taskId, projectId }) => {
-  const router = useRouter();
+const WrapperPanelTask = styled('div')`
+  display: flex;
+  flex-direction: column;
+`;
 
-  const handleClose = () => router.push(`/board/${projectId}`);
-
+export const PanelTask: React.FC<Props> = ({ task, handleClose }) => {
   return (
-    <Dialog maxWidth="md" onClose={handleClose} open={!!taskId}>
-      test
-    </Dialog>
+    <WrapperPanelTask>
+      <HeaderTask task={task} handleClose={handleClose} />
+    </WrapperPanelTask>
   );
 };

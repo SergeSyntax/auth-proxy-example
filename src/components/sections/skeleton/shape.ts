@@ -1,7 +1,7 @@
 import { Card, styled } from '@material-ui/core';
 
 export const ShapeSkeletonSection = styled(Card)`
-  border-radius: ${({ theme }) => theme.shape.borderRadius};
+  border-radius: ${({ theme }) => theme.shape.borderRadius}px;
   background: #ebecf0;
   flex-shrink: 0;
   margin-left: 1rem;

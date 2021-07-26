@@ -17,7 +17,7 @@ export const HeaderTask: React.FC<Props> = ({ task, handleClose }) => {
   return (
     <WrapperHeaderTask>
       {showForm ? (
-        <FormRenameTask handleClose={() => setShowForm(true)} task={task} />
+        <FormRenameTask handleClose={() => setShowForm(false)} task={task} />
       ) : (
         <TitleHeaderTask onClick={() => setShowForm(true)}>{task.title}</TitleHeaderTask>
       )}

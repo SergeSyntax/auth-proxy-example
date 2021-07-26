@@ -22,6 +22,7 @@
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^5.0.0-beta.0",
+    "@material-ui/lab": "^5.0.0-alpha.40",
     "@types/passport-jwt": "^3.0.6",
     "@types/passport-local": "^1.0.34",
     "axios": "^0.21.1",

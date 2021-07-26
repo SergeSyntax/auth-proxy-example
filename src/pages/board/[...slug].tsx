@@ -14,8 +14,6 @@ interface Props {
 }
 
 const Board: NextPage<Props> = ({ projectId, taskId }) => {
-  console.log(taskId);
-
   return (
     <LayoutBoard>
       <SEO

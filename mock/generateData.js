@@ -10,10 +10,10 @@ const { green, cyan } = require('chalk');
 require('dotenv').config();
 
 const NUM_OF_USERS = 1;
-const NUM_OF_PROJECTS_PER_USER = 1;
-const NUM_OF_SECTIONS_PER_PROJECT = 1;
+const NUM_OF_PROJECTS_PER_USER = 2;
+const NUM_OF_SECTIONS_PER_PROJECT = 7;
 const NUM_OF_TASKS_PER_SECTION = 20;
-const NUM_OF_COMMENTS_PER_TASK = 1;
+const NUM_OF_COMMENTS_PER_TASK = 2;
 
 // change from callback function to promise based
 const writeFile = promisify(fs.writeFile);
@@ -74,11 +74,12 @@ const generateProject = ({ id: owner }) => ({
   updatedAt: faker.datatype.datetime().toISOString()
 });
 
-const generateUser = async () => {
+const generateUser = async (_value, index) => {
   const password = process.env.MOCK_PASSWORD || faker.internet.password();
   const hashedPassword = await hashPassword(password);
   const name = faker.internet.userName();
-  const email = process.env.MOCK_EMAIL || faker.internet.email(name).toLowerCase().trim();
+  const email =
+    (index === 0 && process.env.MOCK_EMAIL) || faker.internet.email(name).toLowerCase().trim();
 
   setTimeout(function () {
     console.log('user generated:');

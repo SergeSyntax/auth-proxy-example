@@ -1,8 +1,7 @@
-import React from 'react';
-import { Field, Form, Formik } from 'formik';
+import React, { Fragment } from 'react';
+import { ErrorMessage, Field, FieldProps, Form, Formik, getIn, useFormikContext } from 'formik';
 import { ValuesDueDateTask } from './values.interface';
-import { renameTaskValidationSchema } from './schema';
-import { FieldTitleTask } from './field';
+import { dueDateTaskValidationSchema, MAX_DATE, MIN_DATE } from './schema';
 import { useDueDateTask } from './use-due-date-task.hook';
 import { TaskRes } from '../task-res.interface';
 import { LabelTask } from '../label';
@@ -10,78 +9,92 @@ import { GrClock } from 'react-icons/gr';
 import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
 import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
 // import {format} from 'date-fns'
-import DateTimePicker from '@material-ui/lab/DateTimePicker';
-import ruLocale from 'date-fns/locale/ru';
 
-import { TextField } from '@material-ui/core';
-import locale from 'date-fns/locale/en-US';
-import { DatePicker, TimePicker } from '@material-ui/lab';
+import { styled, TextField } from '@material-ui/core';
+import { DateTimePicker } from '@material-ui/lab';
+import { IconType } from 'react-icons/lib';
 
 interface Props {
   task: TaskRes;
 }
 
+interface DateFieldsetProps {
+  icon: IconType;
+  name: string;
+  label: string;
+}
+
+const WrapperFieldTask = styled('div')`
+  padding-left: 2.5rem;
+`;
+
+const DateTimeField: React.FC<FieldProps<string>> = props => {
+  const { field, form, ...rest } = props;
+  const { setFieldValue } = useFormikContext();
+
+  const { name } = field;
+  const isError = getIn(form.errors, name) && getIn(form.touched, name);
+  const getErrorMessage = getIn(form.errors, name);
+  return (
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <DateTimePicker
+        openTo="day"
+        mask="__/__/____ __:__"
+        ampm={false}
+        minDate={MIN_DATE}
+        maxDate={MAX_DATE}
+        inputFormat="dd/MM/yyyy hh:mm"
+        value={field.value}
+        onChange={value => {
+          setFieldValue(name, value);
+        }}
+        onClose={() => form.submitForm()}
+        renderInput={params => {
+          return (
+            <TextField
+              {...params}
+              {...rest}
+              id={name}
+              fullWidth
+              helperText={isError ? getErrorMessage : ' '}
+              hidden={!isError || params.value === null}
+              variant="outlined"
+              size="medium"
+              onBlur={() => form.submitForm()}
+            />
+          );
+        }}
+      />{' '}
+    </LocalizationProvider>
+  );
+};
+
+{
+}
+
 export const DueDateTask = ({ task }: Props) => {
   const { mutateAsync, isLoading } = useDueDateTask();
-  const [value, setValue] = React.useState<Date | null>(new Date());
-  const [time, setTime] = React.useState<Date | null>(new Date());
 
   return (
     <Formik<ValuesDueDateTask>
-      validationSchema={renameTaskValidationSchema}
-      initialValues={{ dueDate: task.dueDate || '', taskId: task.id }}
-      onSubmit={async values => {
+      validationSchema={dueDateTaskValidationSchema}
+      initialValues={{
+        dueDate: task.dueDate,
+        taskId: task.id
+      }}
+      onSubmit={async (values, helpers) => {
+        console.log(values.dueDate);
+
         await mutateAsync(values);
       }}
     >
-      {({ handleSubmit }) => {
+      {() => {
         return (
-          <Form
-            style={{ display: 'flex', flexDirection: 'column', maxWidth: '40rem' }}
-            autoComplete="off"
-            noValidate
-          >
-            <LabelTask icon={GrClock} label="due date" name="dueDate" />
-            <div style={{ display: 'flex' }}>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  disableFuture
-                  label="Date"
-                  openTo="year"
-                  views={['year', 'month', 'day']}
-                  mask="__/__/____"
-                  value={value}
-                  onChange={newValue => {
-                    setValue(newValue);
-                  }}
-                  renderInput={params => <TextField {...params} />}
-                />
-
-                <TimePicker
-                  ampm={false}
-                  openTo="hours"
-                  views={['hours', 'minutes', 'seconds']}
-                  inputFormat="HH:mm"
-                  mask="__:__"
-                  label="Hour"
-                  value={time}
-                  onChange={newValue => {
-                    setTime(newValue);
-                  }}
-                  renderInput={params => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </div>
-
-            {/* <Field
-              autoFocus
-              multiline
-              onBlur={handleSubmit}
-              size="medium"
-              fullWidth
-              name="dueDate"
-              component={FieldTitleTask}
-            /> */}
+          <Form style={{ display: 'flex', flexDirection: 'column' }} autoComplete="off" noValidate>
+            <LabelTask label="due date" icon={GrClock} name="dueDate" />
+            <WrapperFieldTask>
+              <Field name="dueDate" component={DateTimeField} />
+            </WrapperFieldTask>
           </Form>
         );
       }}
